@@ -1,5 +1,10 @@
-import React from "react";
+
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Autoplay } from "swiper/core";
+
+SwiperCore.use([Navigation, Autoplay]);
 
 const Title = styled.div`
   width: 100%;
@@ -56,24 +61,125 @@ const Border = styled.div`
   margin: auto;
 `;
 
-const galleryComponents = ({ data, title}) => {
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding-bottom: 2vw;
+`;
+
+const ControlButton = styled.button`
+  background-color: ${(props) => (props.active ? "#cba772" : "white")};
+  color: ${(props) => (props.active ? "white" : "#cba772")};
+  width: 30px;
+  height: 30px;
+  border: 2px solid #cba772;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: ${(props) => (props.active ? "#cba772" : "#cba772")};
+    color: white;
+    transform: ${(props) => (props.active ? "scale(0.9)" : "scale(1.1)")};
+    box-shadow: ${(props) => (props.active ? "none" : "0px 4px 8px rgba(0, 0, 0, 0.2)")};
+  }
+`;
+
+
+
+const GalleryComponents = ({ data, title }) => {
+  const [swiper, setSwiper] = useState(null);
+  const [activeButton, setActiveButton] = useState("play");
+
+  const goNext = () => {
+    if (swiper) {
+      swiper.slideNext();
+      setActiveButton("next");
+    }
+  };
+
+  const goPrev = () => {
+    if (swiper) {
+      swiper.slidePrev();
+      setActiveButton("prev");
+    }
+  };
+
+  const toggleAutoplay = () => {
+    if (swiper) {
+      if (swiper.autoplay.running) {
+        swiper.autoplay.stop();
+        setActiveButton("play");
+      } else {
+        swiper.autoplay.start();
+        setActiveButton("pause");
+      }
+    }
+  };
+
   return (
-    <div className="container mx-auto" style={{border:"solid yellow",boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1),",borderRadius:"12px",backgroundColor:"#FFFF"}}>
-      <Title>ลูกค้าของเรา
-        {/* {title} */}
-        {/* <Border/> */}
-      </Title>
-      <Gallery>
-        {data.map((items, index) => {
-          return (
-            <Pics key={index}>
-              <img src={items.url} alt="" />
-            </Pics>
-          );
-        })}
-      </Gallery>
+    <div className="container mx-auto">
+      <Title>ลูกค้าของเรา</Title>
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        navigation
+        loop
+        autoplay={{ delay: 3000 }}
+        onSwiper={setSwiper}
+      >
+        <Gallery>
+          {data.map((items, index) => (
+            <SwiperSlide key={index} style={{ height: "500px" }}>
+              <div
+                style={{
+                  borderRadius: "12px",
+                  boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",
+                  position: "relative",
+                }}
+              >
+                <Pics key={index}>
+                  <img src={items.url} alt="" />
+                </Pics>
+                <div
+                    style={{
+                      position: "relative",
+                      bottom: "10px",
+                      color: "black",
+                      padding: "5px 5px 5px 5px",
+                      fontSize: "16px",
+                    }}
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Gallery>
+      </Swiper>
+      <ButtonContainer>
+        <ControlButton
+          onClick={goPrev}
+          active={activeButton === "prev"}
+        >
+        </ControlButton>
+        <ControlButton
+          onClick={toggleAutoplay}
+          active={activeButton === "pause"}
+        >
+        </ControlButton>
+        <ControlButton
+          onClick={goNext}
+          active={activeButton === "next"}
+        >
+        </ControlButton>
+      </ButtonContainer>
     </div>
   );
 };
 
-export default galleryComponents;
+export default GalleryComponents;
