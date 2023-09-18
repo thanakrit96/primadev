@@ -36,6 +36,14 @@ const IndexPage = ({ data }) => {
   const titleAboutCLinic = _data.titleaboutclinic;
   const subTitleAboutCLinic = _data.subtitleaboutclinic;
   const aboutClinic = _data.aboutclinic;
+  // const whyprima = _data.whyprima;
+  // const titlewhyprima = _data.titlewhyprima;
+  // const subtitlewhyprima = _data.subtitlewhyprima;
+  // const deswhyprima = _data.deswhyprima;
+  // const whypicwhyprima = _data.whypicwhyprima;
+  // const kickerwhyprima = _data.kickerwhyprima;
+
+  const serviceprimaserviceprima = _data.serviceprimaserviceprima;
   const map = _data.imagemap;
   const mapUrl = _data.mapurl;
   const titleReview = _data.titleimageandatmosphere;
@@ -46,6 +54,9 @@ const IndexPage = ({ data }) => {
   const titleBtnBuy = _data.titlebtnbuy;
   const titleDetail = _data.titledetail;
   const titlePartner = _data.titlepartner;
+  const btnteraphy = _data.btnteraphy;
+  const titlebtncnplan = _data.titlebtncnplan;
+  const titlebtncombined = _data.titlebtncombined;
 
   const [detailPopup, setPopup] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -94,7 +105,14 @@ const IndexPage = ({ data }) => {
         </Element>
       </Fade>
       <Element name="aboutUs">
+        
         <AboutComponents
+          // titlewhyprima={titlewhyprima}
+          // kickerwhyprima={kickerwhyprima}
+          // whypicwhyprima={whypicwhyprima}
+          // data={whyprima}
+          // serviceprimaserviceprima={serviceprimaserviceprima}
+          // whyprima={whyprima}
           titleAbout={titleAboutCLinic}
           subTitle={subTitleAboutCLinic}
           data={aboutClinic}
@@ -113,6 +131,9 @@ const IndexPage = ({ data }) => {
             title={titleProgram}
             titleBtnBuy={titleBtnBuy}
             titleDetail={titleDetail}
+            btnteraphy={btnteraphy}
+            titlebtncnplan={titlebtncnplan}
+            titlebtncombined={titlebtncombined}
           />
         </Element>
       </Fade>
@@ -213,6 +234,7 @@ export const query = graphql`
         price
         title
         description
+        pricediscound
       }
       partner {
         image {
@@ -227,7 +249,7 @@ export const query = graphql`
           url
         }
         description
-      }
+      } 
       subtitleaboutclinic
       titleaboutclinic
       imagemap {
@@ -242,6 +264,9 @@ export const query = graphql`
       titlebtnbuy
       titledetail
       titlepartner
+      titlebtncombined
+      titlebtncnplan
+      btnteraphy
     }
   }
 `;

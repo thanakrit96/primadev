@@ -89,6 +89,7 @@ const TextLang = styled.div`
   cursor: pointer;
   font-size: 1.5vw;
   margin-left: 10px;
+  color:#FFFF;
   @media (max-width: 480px) {
     font-size: 2.3vw;
   }
@@ -103,6 +104,7 @@ const TextLangForZh = styled.div`
   margin-top: 3px;
   font-size: 1vw;
   margin-left: 10px;
+  color:#FFFF;
   @media (max-width: 480px) {
     font-size: 2vw;
   }
@@ -179,13 +181,13 @@ const headerComponents = ({ data, icon, titleBtn}) => {
           <LeftContent>
             <TextContent>
               <TextLang>
-                <Link to="/">TH</Link>
+                <Link to="/"style={{color:"#FFFF"}}>TH</Link>
               </TextLang>
               <TextLang>
-                <Link to="/en">/ENG</Link>
+                <Link to="/en"style={{color:"#FFFF"}}>/ENG</Link>
               </TextLang>
               <TextLangForZh>
-                <Link to="/zh">/CN</Link>
+                <Link to="/zh"style={{color:"#FFFF"}}>/CN</Link>
               </TextLangForZh>
             </TextContent>
             <IconContent>

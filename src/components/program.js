@@ -167,6 +167,9 @@ const programComponents = ({
   title,
   titleBtnBuy,
   titleDetail,
+  btnteraphy,
+  titlebtncnplan,
+  titlebtncombined,
 }) => {
   return (
     <div
@@ -176,8 +179,9 @@ const programComponents = ({
         {title}
         {/* <Border /> */}
       </Title>
-      {/* <Button>aaa</Button>
-      <button>test</button> */}
+      <Button>{btnteraphy}</Button>
+      <Button>{titlebtncnplan}</Button>
+      <Button>{titlebtncombined}</Button>
       <div 
       className="container mx-auto"
       >
@@ -195,6 +199,7 @@ const programComponents = ({
               <Text>
                 <h2>{items.title}</h2>
                 <p>{items.description}</p>
+                <p>{items.pricediscound}</p>
                 <p>{items.price}</p>
               </Text>
                 <Text

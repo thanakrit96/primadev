@@ -122,9 +122,10 @@ const GalleryComponents = ({ data, title }) => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto" style={{borderRadius:"12px",boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)"}}>
+      <div style={{padding:"1em"}}>
       <Title>ลูกค้าของเรา</Title>
-      <Swiper
+      <Swiper 
         slidesPerView={3}
         spaceBetween={30}
         navigation
@@ -178,6 +179,7 @@ const GalleryComponents = ({ data, title }) => {
         >
         </ControlButton>
       </ButtonContainer>
+    </div>
     </div>
   );
 };

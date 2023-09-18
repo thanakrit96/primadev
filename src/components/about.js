@@ -100,16 +100,20 @@ const aboutComponents = ({ titleAbout, subTitle, data }) => {
   return (
     <div className="container mx-auto"style={{borderRadius:"12px",boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",backgroundColor:"#FFFF"}}>
       <Title>{titleAbout}</Title>
+       {/* <div>{titlewhyprima}test</div>
+      <div>{whyprima.kicker}</div> 
+      <div>{whyprima.title}</div> */}
+      {/* <div>{kickerwhyprima}</div> */}
       <SubTitle>{subTitle}</SubTitle>
       {data.map((items, i) => (
           <div>
             <Fade bottom>
-              <TitleInContent>{items.title}</TitleInContent>
+              <TitleInContent style={{border:"solid green"}}>{items.title}</TitleInContent>
               <SubTitleInContent>{items.subtitle}</SubTitleInContent>
               {(items.title || items.subtitle) && <Border />}
               <Content key={i}>
                 <img src={items.image.url} alt="" />
-                <TextDescription
+                <TextDescription style={{border:"solid red"}}
                   dangerouslySetInnerHTML={{
                     __html: items.description,
                   }}
