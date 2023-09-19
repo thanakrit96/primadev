@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper/core";
+
+
 SwiperCore.use([Navigation, Autoplay]);
 const Title = styled.div`
   width: 100%;
@@ -70,14 +72,23 @@ const ButtonContainer = styled.div`
 const ControlButton = styled.button`
   background-color: ${(props) => (props.active ? "#cba772" : "white")};
   color: ${(props) => (props.active ? "white" : "#cba772")};
-  width: 30px;
-  height: 30px;
-  border: 2px solid #cba772;
-  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #cba772;
+  border-radius: 35px;
+  padding: 5px 5px;
   margin: 0 10px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, padding 0.3s; /* Added padding transition */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  &.custom-active {
+    background-color: #cba772;
+    color: white;
+    transform: scale(0.9);
+    box-shadow: none;
+    padding: 5px 15px;
+  }
 
   &:hover {
     border-radius: 88px;
@@ -85,8 +96,12 @@ const ControlButton = styled.button`
     color: white;
     transform: ${(props) => (props.active ? "scale(0.9)" : "scale(1.1)")};
     box-shadow: ${(props) => (props.active ? "none" : "0px 4px 8px rgba(0, 0, 0, 0.2)")};
+    padding: 5px 15px; /* Added padding for hover effect */
   }
 `;
+
+
+
 
 
 
@@ -120,32 +135,34 @@ const GalleryComponents = ({ data, title }) => {
     }
   };
 
+
+
   return (
-    <div className="container mx-auto" style={{borderRadius:"12px",boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)"}}>
-      <div style={{padding:"1em"}}>
-      <Title>ลูกค้าของเรา</Title>
-      <Swiper 
-        slidesPerView={3}
-        spaceBetween={30}
-        navigation
-        loop
-        autoplay={{ delay: 3000 }}
-        onSwiper={setSwiper}
-      >
-        <Gallery>
-          {data.map((items, index) => (
-            <SwiperSlide key={index} style={{ height: "500px" }}>
-              <div
-                style={{
-                  borderRadius: "12px",
-                  boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",
-                  position: "relative",
-                }}
-              >
-                <Pics key={index}>
-                  <img src={items.url} alt="" />
-                </Pics>
+    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)" }}>
+      <div style={{ padding: "1em" }}>
+        <Title>ลูกค้าของเรา</Title>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          navigation
+          loop
+          autoplay={{ delay: 3000 }}
+          onSwiper={setSwiper}
+        >
+          <Gallery>
+            {data.map((items, index) => (
+              <SwiperSlide key={index} style={{ height: "500px" }}>
                 <div
+                  style={{
+                    borderRadius: "12px",
+                    boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",
+                    position: "relative",
+                  }}
+                >
+                  <Pics key={index}>
+                    <img src={items.url} alt="" />
+                  </Pics>
+                  <div
                     style={{
                       position: "relative",
                       bottom: "10px",
@@ -156,29 +173,29 @@ const GalleryComponents = ({ data, title }) => {
                   >
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                   </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Gallery>
-      </Swiper>
-      <ButtonContainer>
-        <ControlButton
-          onClick={goPrev}
-          active={activeButton === "prev"}
-        >
-        </ControlButton>
-        <ControlButton
-          onClick={toggleAutoplay}
-          active={activeButton === "pause"}
-        >
-        </ControlButton>
-        <ControlButton
-          onClick={goNext}
-          active={activeButton === "next"}
-        >
-        </ControlButton>
-      </ButtonContainer>
-    </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Gallery>
+        </Swiper>
+        <ButtonContainer>
+          <ControlButton
+            onClick={goPrev}
+            className={activeButton === "prev" ? "custom-active" : ""}
+          >
+          </ControlButton>
+          <ControlButton
+            onClick={toggleAutoplay}
+            className={activeButton === "pause" ? "custom-active" : ""}
+          >
+          </ControlButton>
+          <ControlButton
+            onClick={goNext}
+            className={activeButton === "next" ? "custom-active" : ""}
+          >
+          </ControlButton>
+        </ButtonContainer>
+      </div>
     </div>
   );
 };
