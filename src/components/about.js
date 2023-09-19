@@ -5,7 +5,7 @@ import Fade from "react-reveal/Fade";
 const Title = styled.div`
   width: 100%;
   text-align: center;
-  font-size: 5.5vw;
+  font-size: 2.5vw;
   margin-top: 20px;
   color: #e1ad63;
   text-transform: uppercase;
@@ -93,51 +93,78 @@ const TitleInContent = styled.div`
   text-transform: uppercase;
 `;
 
-const aboutComponents = ({ titleAbout, subTitle, data, whyprima,serviceprima }) => {
+const ContainDes = styled.div`
+  flex: 1;
+  padding: 0 3.5vw 0 3.5vw;
+  top: 1vw;
+`;
+
+const ContainImg = styled.div`
+  flex: 1;
+  text-align: -webkit-center;
+`;
+
+const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima }) => {
   return (
-    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF" }}>
+    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>
       <Title>{titleAbout}</Title>
       {/* section1 */}
-      <div style={{ border: "solid" }}>
-        {whyprima.map((whyprima,i)=>(
-        <div key={i}>
-        <Title>{whyprima.title}</Title>
-        <SubTitle>{whyprima.subtitle}</SubTitle>
-        <p>{whyprima.des}</p>
-        <p>{whyprima.kicker}</p>
-        <img src={whyprima.whypic.url} alt="" />
-        </div>
+      <div style={{ border: "solid", padding: "20px"}}>
+        <div>
+          {whyprima.map((whyprima, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center" }}>
+              <ContainDes>
+                <Title>{whyprima.title}</Title>
+                <SubTitle>{whyprima.subtitle}</SubTitle>
+                <p>{whyprima.des}</p>
+              </ContainDes>
+              <ContainImg>
+                <img src={whyprima.whypic.url} alt="" style={{ width: "20vw", height: "20vw" }} />
+              </ContainImg>
+            </div>
+          ))}
+      </div>
+      <div>
+        {whyprima.map((whyprima, i) => (
+          <div key={i} style={{ padding: "10px 90px 10px 90px", fontSize: "1.25vw" }}>
+            <p style={{textAlign: "center"}}>{whyprima.kicker}</p>
+          </div>
         ))}
-        </div>
-      {/* section2 */}
-      <div style={{border:"solid yellow"}}>
-        {serviceprima.map((serviceprima,i)=>(
-        <div key={i}>
-        <Title>{serviceprima.titleserviceprima}</Title>
-        <SubTitle>{serviceprima.des}</SubTitle>
-        <img src={serviceprima.serpic.url} alt="" />
-        </div>
+      </div>
+    </div>
+
+
+      {/* section2 */ }
+      <div style={{ border: "solid yellow" }}>
+        {serviceprima.map((serviceprima, i) => (
+          <div key={i}>
+            <Title>{serviceprima.titleserviceprima}</Title>
+            <SubTitle>{serviceprima.des}</SubTitle>
+            <img src={serviceprima.serpic.url} alt="" />
+          </div>
         ))}
       </div>
       <SubTitle>{subTitle}</SubTitle>
-      {data.map((items, i) => (
-        <div key={i}>
-          <Fade bottom>
-            <TitleInContent style={{ border: "solid green" }}>{items.title}</TitleInContent>
-            <SubTitleInContent>{items.subtitle}</SubTitleInContent>
-            {(items.title || items.subtitle) && <Border />}
-            <Content>
-              <img src={items.image.url} alt="" />
-              <TextDescription style={{ border: "solid red" }}
-                dangerouslySetInnerHTML={{
-                  __html: items.description,
-                }}
-              />
-            </Content>
-          </Fade>
-        </div>
-      ))}
-    </div>
+  {
+    data.map((items, i) => (
+      <div key={i}>
+        <Fade bottom>
+          <TitleInContent style={{ border: "solid green" }}>{items.title}</TitleInContent>
+          <SubTitleInContent>{items.subtitle}</SubTitleInContent>
+          {(items.title || items.subtitle) && <Border />}
+          <Content>
+            <img src={items.image.url} alt="" />
+            <TextDescription style={{ border: "solid red" }}
+              dangerouslySetInnerHTML={{
+                __html: items.description,
+              }}
+            />
+          </Content>
+        </Fade>
+      </div>
+    ))
+  }
+    </div >
   );
 };
 
