@@ -48,29 +48,34 @@ const Border = styled.div`
 
 const knowLedgeComponents = ({ data, title }) => {
   return (
-    <div className="container mx-auto" style={{border:"solid red "}}>
+    <div className="container mx-auto" style={{height:"40vw"}}>
       <Title>
         {title}
-        <Border/>
+        {/* <Border/> */}
       </Title>
       <Swiper
-          // direction={'vertical'}
-          // slidesPerView={1}
+          direction={'vertical'} 
+          slidesPerView={1}
           pagination={{
             clickable: true,
           }}
-        >   
+        >
       {data.map((items, index) => {
         return (           
-          <div key={index}><SwiperSlide>
-            <img src={items.image ? items.image.url : ""} alt="" />
+          <div key={index}>
+          <SwiperSlide >
+            <img style={{width:"20em", position:"absolute",borderRadius:"35px",zIndex:"1",transform:"translateY(7vw)"}} src={items.image ? items.image.url : ""} alt="" />
+            <div style={{position:"relative",border:"solid rgb(231 227 227) 1px",borderRadius:"20px"
+                          ,transform:"translateX(11vw)",height:"30vw",width:"50vw",
+                          backgroundColor:"#FFFF"}}>
+            <div>{items.title}</div>
             {items.description && 
-            <TextDescription
+            <TextDescription                
                   dangerouslySetInnerHTML={{
                     __html: items.description,
                   }}
-                />}                 
-                </SwiperSlide>
+                />}</div>                 
+            </SwiperSlide>
           </div>          
         );
       })}

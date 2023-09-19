@@ -50,6 +50,7 @@ const IndexPage = ({ data }) => {
   const titlebtncnplan = _data.titlebtncnplan;
   const titlebtncombined = _data.titlebtncombined;
   const whyPrima = _data.whyprima;
+  const serviceprima = _data.serviceprima;
 
   const [detailPopup, setPopup] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -101,6 +102,7 @@ const IndexPage = ({ data }) => {
         
         <AboutComponents
           whyprima={whyPrima}
+          serviceprima={serviceprima}
           titleAbout={titleAboutCLinic}
           subTitle={subTitleAboutCLinic}
           data={aboutClinic}
@@ -237,8 +239,7 @@ export const query = graphql`
           url
         }
         description    
-      }   
-      
+      }     
       whyprima {
         des
         kicker
@@ -247,6 +248,13 @@ export const query = graphql`
         whypic {
           url
         }
+      }
+      serviceprima {
+        serpic {
+          url
+        }
+        des
+        titleserviceprima
       }
       subtitleaboutclinic
       titleaboutclinic

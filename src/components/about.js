@@ -93,17 +93,32 @@ const TitleInContent = styled.div`
   text-transform: uppercase;
 `;
 
-const aboutComponents = ({ titleAbout, subTitle, data, whyprima }) => {
+const aboutComponents = ({ titleAbout, subTitle, data, whyprima,serviceprima }) => {
   return (
     <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF" }}>
       <Title>{titleAbout}</Title>
+      {/* section1 */}
       <div style={{ border: "solid" }}>
-      <Title>{whyprima.title}</Title>
-      <SubTitle>{whyprima.subtitle}</SubTitle>
-      <p>{whyprima.des}</p>
-      <p>{whyprima.kicker}</p>
+        {whyprima.map((whyprima,i)=>(
+        <div key={i}>
+        <Title>{whyprima.title}</Title>
+        <SubTitle>{whyprima.subtitle}</SubTitle>
+        <p>{whyprima.des}</p>
+        <p>{whyprima.kicker}</p>
+        <img src={whyprima.whypic.url} alt="" />
+        </div>
+        ))}
+        </div>
+      {/* section2 */}
+      <div style={{border:"solid yellow"}}>
+        {serviceprima.map((serviceprima,i)=>(
+        <div key={i}>
+        <Title>{serviceprima.titleserviceprima}</Title>
+        <SubTitle>{serviceprima.des}</SubTitle>
+        <img src={serviceprima.serpic.url} alt="" />
+        </div>
+        ))}
       </div>
-
       <SubTitle>{subTitle}</SubTitle>
       {data.map((items, i) => (
         <div key={i}>
