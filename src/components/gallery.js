@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper/core";
-
 SwiperCore.use([Navigation, Autoplay]);
-
 const Title = styled.div`
   width: 100%;
   // text-align: center;
@@ -82,6 +80,7 @@ const ControlButton = styled.button`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
   &:hover {
+    border-radius: 88px;
     background-color: ${(props) => (props.active ? "#cba772" : "#cba772")};
     color: white;
     transform: ${(props) => (props.active ? "scale(0.9)" : "scale(1.1)")};

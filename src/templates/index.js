@@ -7,12 +7,12 @@ import AboutComponents from "../components/about";
 import ProgramComponents from "../components/program";
 import GalleyComponents from "../components/gallery";
 import KnowLedge from "../components/knowLedge";
-import ContactComponents from "../components/contact";
+// import ContactComponents from "../components/contact";
 import MapComponents from "../components/googleMap";
 import Fade from "react-reveal/Fade";
 import * as Scroll from "react-scroll";
 import Popup from "../components/popup";
-import Partner from "../components/partner";
+// import Partner from "../components/partner";
 import { Helmet } from 'react-helmet';
 import dinoFavicon from "../images/icon_logo.png"
 import PartnerAndContactComponent from "../components/PartnerAndContactComponent";
@@ -36,14 +36,6 @@ const IndexPage = ({ data }) => {
   const titleAboutCLinic = _data.titleaboutclinic;
   const subTitleAboutCLinic = _data.subtitleaboutclinic;
   const aboutClinic = _data.aboutclinic;
-  // const whyprima = _data.whyprima;
-  // const titlewhyprima = _data.titlewhyprima;
-  // const subtitlewhyprima = _data.subtitlewhyprima;
-  // const deswhyprima = _data.deswhyprima;
-  // const whypicwhyprima = _data.whypicwhyprima;
-  // const kickerwhyprima = _data.kickerwhyprima;
-
-  const serviceprimaserviceprima = _data.serviceprimaserviceprima;
   const map = _data.imagemap;
   const mapUrl = _data.mapurl;
   const titleReview = _data.titleimageandatmosphere;
@@ -57,6 +49,7 @@ const IndexPage = ({ data }) => {
   const btnteraphy = _data.btnteraphy;
   const titlebtncnplan = _data.titlebtncnplan;
   const titlebtncombined = _data.titlebtncombined;
+  const whyprima = _data.whyprima;
 
   const [detailPopup, setPopup] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -107,12 +100,7 @@ const IndexPage = ({ data }) => {
       <Element name="aboutUs">
         
         <AboutComponents
-          // titlewhyprima={titlewhyprima}
-          // kickerwhyprima={kickerwhyprima}
-          // whypicwhyprima={whypicwhyprima}
-          // data={whyprima}
-          // serviceprimaserviceprima={serviceprimaserviceprima}
-          // whyprima={whyprima}
+          whyprima={whyprima}
           titleAbout={titleAboutCLinic}
           subTitle={subTitleAboutCLinic}
           data={aboutClinic}
@@ -250,6 +238,15 @@ export const query = graphql`
         }
         description
       } 
+      whyprima {
+        title
+        subtitle
+        des
+        whypic {
+          url
+        }
+        kicker
+      }      
       subtitleaboutclinic
       titleaboutclinic
       imagemap {

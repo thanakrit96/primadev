@@ -96,14 +96,17 @@ const TitleInContent = styled.div`
   } */
 `;
 
-const aboutComponents = ({ titleAbout, subTitle, data }) => {
+const aboutComponents = ({ titleAbout, subTitle, data,whyprima }) => {
   return (
     <div className="container mx-auto"style={{borderRadius:"12px",boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",backgroundColor:"#FFFF"}}>
       <Title>{titleAbout}</Title>
-       {/* <div>{titlewhyprima}test</div>
-      <div>{whyprima.kicker}</div> 
-      <div>{whyprima.title}</div> */}
-      {/* <div>{kickerwhyprima}</div> */}
+      <div>
+        <h3>{whyprima.title}</h3>
+        <p>{whyprima.subtitle}</p>
+        <p>{whyprima.des}</p>
+        {/* <img src={whyprima.whypic.url} alt="" /> */}
+        <p>{whyprima.kicker}</p>
+      </div>
       <SubTitle>{subTitle}</SubTitle>
       {data.map((items, i) => (
           <div>
