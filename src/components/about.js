@@ -91,39 +91,36 @@ const TitleInContent = styled.div`
   color: #e1ad63;
   margin-bottom: 10px;
   text-transform: uppercase;
-  /* @media (max-width: 480px) {
-    font-size: 3.5vw;
-  } */
 `;
 
-const aboutComponents = ({ titleAbout, subTitle, data,whyprima }) => {
+const aboutComponents = ({ titleAbout, subTitle, data, whyprima }) => {
   return (
-    <div className="container mx-auto"style={{borderRadius:"12px",boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",backgroundColor:"#FFFF"}}>
+    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF" }}>
       <Title>{titleAbout}</Title>
-      <div>
-        <h3>{whyprima.title}</h3>
-        <p>{whyprima.subtitle}</p>
-        <p>{whyprima.des}</p>
-        {/* <img src={whyprima.whypic.url} alt="" /> */}
-        <p>{whyprima.kicker}</p>
+      <div style={{ border: "solid" }}>
+      <Title>{whyprima.title}</Title>
+      <SubTitle>{whyprima.subtitle}</SubTitle>
+      <p>{whyprima.des}</p>
+      <p>{whyprima.kicker}</p>
       </div>
+
       <SubTitle>{subTitle}</SubTitle>
       {data.map((items, i) => (
-          <div>
-            <Fade bottom>
-              <TitleInContent style={{border:"solid green"}}>{items.title}</TitleInContent>
-              <SubTitleInContent>{items.subtitle}</SubTitleInContent>
-              {(items.title || items.subtitle) && <Border />}
-              <Content key={i}>
-                <img src={items.image.url} alt="" />
-                <TextDescription style={{border:"solid red"}}
-                  dangerouslySetInnerHTML={{
-                    __html: items.description,
-                  }}
-                />
-              </Content>
-            </Fade>
-          </div>
+        <div key={i}>
+          <Fade bottom>
+            <TitleInContent style={{ border: "solid green" }}>{items.title}</TitleInContent>
+            <SubTitleInContent>{items.subtitle}</SubTitleInContent>
+            {(items.title || items.subtitle) && <Border />}
+            <Content>
+              <img src={items.image.url} alt="" />
+              <TextDescription style={{ border: "solid red" }}
+                dangerouslySetInnerHTML={{
+                  __html: items.description,
+                }}
+              />
+            </Content>
+          </Fade>
+        </div>
       ))}
     </div>
   );
