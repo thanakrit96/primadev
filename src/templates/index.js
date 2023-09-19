@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
   const btnteraphy = _data.btnteraphy;
   const titlebtncnplan = _data.titlebtncnplan;
   const titlebtncombined = _data.titlebtncombined;
-  const whyprima = _data.whyprima;
+  const whyPrima = _data.whyprima;
 
   const [detailPopup, setPopup] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -100,15 +100,15 @@ const IndexPage = ({ data }) => {
       <Element name="aboutUs">
         
         <AboutComponents
-          whyprima={whyprima}
+          whyprima={whyPrima}
           titleAbout={titleAboutCLinic}
           subTitle={subTitleAboutCLinic}
           data={aboutClinic}
         />
       </Element>
-      <Fade bottom>
+      {/* <Fade bottom>
         <BannerComponent bannerList={bannerAboutUs} />
-      </Fade>
+      </Fade> */}
       <Fade bottom>
         <Element name="treatmentProgram">
           <ProgramComponents
@@ -236,17 +236,18 @@ export const query = graphql`
         image {
           url
         }
-        description
-      } 
+        description    
+      }   
+      
       whyprima {
-        title
-        subtitle
         des
+        kicker
+        subtitle
+        title
         whypic {
           url
         }
-        kicker
-      }      
+      }
       subtitleaboutclinic
       titleaboutclinic
       imagemap {
