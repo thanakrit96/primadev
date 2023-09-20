@@ -235,11 +235,9 @@ const programComponents = ({
         {/* <Border /> */}
       </Title>
       <ButtonC style={{paddingBottom: "2vw"}}>
-        <a href={line[3].link} target="_blank">
           <ButtonCate style={{marginRight: "1vw"}} theme={"#e1ad63"}>{btnteraphy}</ButtonCate>
           <ButtonCate style={{marginRight: "1vw"}} theme={"#e1ad63"}>{titlebtncnplan}</ButtonCate>
           <ButtonCate theme={"#e1ad63"}>{titlebtncombined}</ButtonCate>
-        </a>
       </ButtonC>
       <div
         className="container mx-auto"
