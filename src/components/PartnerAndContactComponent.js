@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/icon_logo.png";
+
 const LogoPrima = styled.div`
   display: block;
   margin-left: auto;
@@ -9,9 +10,11 @@ const LogoPrima = styled.div`
 `;
 
 const Text = styled.div`
+  font-size: 2vw;
+  font-style: italic;
   text-align: center;
   p {
-    font-size: 20px;
+    font-size: 2vw;
   }
 `;
 
@@ -34,7 +37,7 @@ const IconContent = styled.div`
 
 const Title = styled.div`
   width: 100%;
-  font-size: 2vw;
+  font-size: 1.2vw;
   text-transform: uppercase;
   text-decoration-color: #e1ad63;
   padding: 0 10%;
@@ -50,7 +53,7 @@ const Title = styled.div`
 
 const TextDescription = styled.div`
   width: 100%;
-  font-size: 1.5vw;
+  font-size: 1vw;
   text-transform: uppercase;
   padding: 0 11%;
   @media (max-width: 1080px) {
@@ -71,7 +74,7 @@ const Partner = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-around;
-  grid-gap: 1rem;
+  grid-gap: 1vw;
   grid-template-columns: repeat(4, 1fr);
   img {
     width: 80%;
@@ -84,7 +87,8 @@ const Partner = styled.div`
     margin: auto;
   }
 `;
-const PartnerAndContactComponent = ({ data, title, icon, contact,  }) => {
+
+const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
   return (
     <div style={{ backgroundColor: "#accbb6" }}>
       <div className="container mx-auto">
@@ -97,8 +101,8 @@ const PartnerAndContactComponent = ({ data, title, icon, contact,  }) => {
           <div>
             <Text
               dangerouslySetInnerHTML={{
-                __html: contact[0].description,
-              }}/>
+                __html: contact[3].description,
+              }} />
             <IconContent>
               {icon.map((items, index) => (
                 <Icon key={index}>
@@ -108,28 +112,38 @@ const PartnerAndContactComponent = ({ data, title, icon, contact,  }) => {
                 </Icon>
               ))}
             </IconContent>
-            <div style={{border:"solid red,",display:"grid"}}>
-            {contact.map((items) => (
-              <div key={items.id} className="tt" style={{border:"solid"}}>
-                <Title>{items.title}</Title>
-                {/* <Border /> */}
-                <TextDescription
-                  dangerouslySetInnerHTML={{
-                    __html: items.description,
-                  }}
-                />
-              </div>
-            ))}{data && (
-          <Partner>
-            {data.map((items) => (
-              <div key={items.id}>
-                <img src={items.image.url} alt="" />
-              </div>
-            ))}
-          </Partner>
-        )}</div>
+            <div style={{ border: "solid purple 3px,", display: "flex", height: "20vw" }}>
+              {contact.slice(0, 2).map((items, index) => (
+                <div key={items.id} className="tt" style={{ padding: "1vw", flex: "none", width: "20vw" }}>
+                  <Title>{items.title}</Title>
+                  <TextDescription
+                    dangerouslySetInnerHTML={{
+                      __html: items.description,
+                    }}
+                  />
+                  {index === 1 && index + 1 < contact.length && (
+                    <>
+                      <Title>{contact[index + 1].title}</Title>
+                      <TextDescription
+                        dangerouslySetInnerHTML={{
+                          __html: contact[index + 1].description,
+                        }}
+                      />
+                    </>
+                  )}
+                </div>
+              ))}
+              {data && (
+                <Partner style={{ gridTemplateColumns: "repeat(3, 8vw)", gridTemplateRows: "100px" }}>
+                  {data.map((items) => (
+                    <div key={items.id}>
+                      <img src={items.image.url} alt="" />
+                    </div>
+                  ))}
+                </Partner>
+              )}</div>
           </div>
-        )}  
+        )}
       </div>
     </div>
   );
