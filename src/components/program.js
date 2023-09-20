@@ -274,7 +274,7 @@ const programComponents = ({
                 </a>
               </Button>  */}
                   <Button>
-                    <a href={line[3].link} target="_blank">
+                    <a href={line[1].link} target="_blank">
                       <ButtonBuy style={{ transform: "translateY(50%)", position: "absolute", bottom: "0" }} theme={"#e1ad63"}>{titleBtnBuy}</ButtonBuy>
                     </a>
                   </Button>
