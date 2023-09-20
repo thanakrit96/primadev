@@ -77,12 +77,10 @@ const SubTitleInContent = styled.div`
   @media (max-width: 1080px) {
     font-size: 2vw;
   }
-
   @media (max-width: 480px) {
     font-size: 3vw;
   }
 `;
-
 const TitleInContent = styled.div`
   width: 100%;
   text-align: center;
@@ -106,8 +104,7 @@ const ContainImg = styled.div`
 
 const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima }) => {
   return (
-    <div className="container mx-auto">
-      
+    <div className="container mx-auto">      
       {/* section1 */}
       <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>
         <div>
@@ -132,21 +129,21 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima })
         ))}
       </div>
     </div>
-
-
       {/* section2 */ }
-      <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>
+      <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>        
+        {/* <div style={{display:"flex"}}> */}
         {serviceprima.map((serviceprima, i) => (
           <div key={i}>
             <Title>{serviceprima.titleserviceprima}</Title>
+            <div style={{display:"flex"}}>
             <SubTitle>{serviceprima.des}</SubTitle>
-            <img style={{width:"10%",padding:"1em"}} src={serviceprima.serpic.url} alt="" />
+            <img style={{width:"10%",padding:"1em"}} src={serviceprima.serpic.url} alt="" /></div>
           </div>
         ))}
       </div>
-      
-          {/* section3 */}
-      <Title>{titleAbout}</Title>
+      {/* </div> */}
+      {/* section3 */}
+    <Title>{titleAbout}</Title>
     <SubTitle>{subTitle}</SubTitle>
     {data.map((items, i) => (
       <div key={i}>
