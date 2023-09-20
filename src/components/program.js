@@ -16,7 +16,7 @@ const Title = styled.div`
     font-size: 24px;
   }
   @media (min-width: 1441px) {
-    padding-left: 25%;
+    // padding-left: 25%;
   }
 `;
 
@@ -156,7 +156,7 @@ const ButtonC = styled.div`
     padding: 0 0%;
   }
   @media (min-width: 1441px) {
-    padding-left: 25%;
+    // padding-left: 25%;
   }
 `;
 

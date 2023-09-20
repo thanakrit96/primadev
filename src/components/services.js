@@ -72,7 +72,9 @@ const ContentServicesGrid= styled.div`
 
 const servicesComponents = ({ data, selectSection, title }) => {
   return (
-    <div style={{border:"solid orange"}}>
+    <div 
+    // style={{border:"solid orange"}}
+    >
       {/* <Title>{title}</Title> */}
       {/* <Border /> */}
       <Content>

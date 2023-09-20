@@ -7,7 +7,7 @@ const Title = styled.div`
   text-align: center;
   font-size: 2.5vw;
   margin-top: 20px;
-  color: #e1ad63;
+  color: #32594C;
   text-transform: uppercase;
 `;
 
@@ -106,28 +106,28 @@ const ContainImg = styled.div`
 
 const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima }) => {
   return (
-    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>
-      <Title>{titleAbout}</Title>
+    <div className="container mx-auto">
+      
       {/* section1 */}
-      <div style={{ border: "solid", padding: "20px"}}>
+      <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>
         <div>
           {whyprima.map((whyprima, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center" }}>
               <ContainDes>
-                <Title>{whyprima.title}</Title>
-                <SubTitle>{whyprima.subtitle}</SubTitle>
+                <Title style={{textAlign:"start"}}>{whyprima.title}</Title>
+                <SubTitle style={{color:"#CBA772",padding:"0",textIndent:"0"}}>{whyprima.subtitle}</SubTitle>
                 <p>{whyprima.des}</p>
-              </ContainDes>
-              <ContainImg>
-                <img src={whyprima.whypic.url} alt="" style={{ width: "20vw", height: "20vw" }} />
-              </ContainImg>
+                </ContainDes>
+                <ContainImg>
+                <img src={whyprima.whypic.url} alt="" style={{ width: "20vw", height: "20vw",border:"solid ",borderRadius: "12px",marginTop:"2em" }} />
+                </ContainImg>
             </div>
           ))}
       </div>
-      <div>
+      <div style={{}}>
         {whyprima.map((whyprima, i) => (
           <div key={i} style={{ padding: "10px 90px 10px 90px", fontSize: "1.25vw" }}>
-            <p style={{textAlign: "center"}}>{whyprima.kicker}</p>
+            <p style={{textAlign: "center",color:"#5A8585"}}>{whyprima.kicker}</p>
           </div>
         ))}
       </div>
@@ -135,18 +135,20 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima })
 
 
       {/* section2 */ }
-      <div style={{ border: "solid yellow" }}>
+      <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>
         {serviceprima.map((serviceprima, i) => (
           <div key={i}>
             <Title>{serviceprima.titleserviceprima}</Title>
             <SubTitle>{serviceprima.des}</SubTitle>
-            <img src={serviceprima.serpic.url} alt="" />
+            <img style={{width:"10%",padding:"1em"}} src={serviceprima.serpic.url} alt="" />
           </div>
         ))}
       </div>
-      <SubTitle>{subTitle}</SubTitle>
-  {
-    data.map((items, i) => (
+      
+          {/* section3 */}
+      <Title>{titleAbout}</Title>
+    <SubTitle>{subTitle}</SubTitle>
+    {data.map((items, i) => (
       <div key={i}>
         <Fade bottom>
           <TitleInContent style={{ border: "solid green" }}>{items.title}</TitleInContent>
