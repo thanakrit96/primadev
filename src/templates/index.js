@@ -36,6 +36,7 @@ const IndexPage = ({ data }) => {
   const titleAboutCLinic = _data.titleaboutclinic;
   const subTitleAboutCLinic = _data.subtitleaboutclinic;
   const aboutClinic = _data.aboutclinic;
+  const kickeraboutClinic = _data.kicker;
   const map = _data.imagemap;
   const mapUrl = _data.mapurl;
   const titleReview = _data.titleimageandatmosphere;
@@ -51,7 +52,7 @@ const IndexPage = ({ data }) => {
   const titlebtncombined = _data.titlebtncombined;
   const whyPrima = _data.whyprima;
   const serviceprima = _data.serviceprima;
-
+  const btngroup = _data.btngroup;
   const [detailPopup, setPopup] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopupVaccine, setPopupVaccine] = useState(true);
@@ -101,12 +102,14 @@ const IndexPage = ({ data }) => {
       <Element name="aboutUs">
         
         <AboutComponents
+          kickeraboutClinic={kickeraboutClinic}
           bannerList={bannerAboutUs} 
           whyprima={whyPrima}
           serviceprima={serviceprima}
           titleAbout={titleAboutCLinic}
           subTitle={subTitleAboutCLinic}
           data={aboutClinic}
+          btngroup={btngroup}
         />
       </Element>
       {/* <Fade bottom>
@@ -240,6 +243,9 @@ export const query = graphql`
           url
         }
         description    
+      }
+      btngroup{
+        btngroup
       }     
       whyprima {
         des
@@ -259,6 +265,7 @@ export const query = graphql`
       }
       subtitleaboutclinic
       titleaboutclinic
+      kicker
       imagemap {
         url
       }

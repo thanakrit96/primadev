@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
+import { Button } from "react-scroll";
 
 const Title = styled.div`
   width: 100%;
@@ -102,7 +103,7 @@ const ContainImg = styled.div`
   text-align: -webkit-center;
 `;
 
-const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima,bannerList }) => {
+const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima,bannerList,kickeraboutClinic,btngroup }) => {
   return (
     <div className="container mx-auto">      
       {/* section1 */}
@@ -131,7 +132,6 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima,ba
     </div>
       {/* section2 */ }
       <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF", padding: "" }}>        
-        {/* <div style={{display:"flex"}}> */}
         {serviceprima.map((serviceprima, i) => (
           <div key={i}>
             <Title>{serviceprima.titleserviceprima}</Title>
@@ -141,11 +141,29 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima,ba
           </div>
         ))}
       </div>
-      {/* </div> */}
-      {/* section3 */}
-      {/* <div>{bannerList}</div> */}
+
+
+      {/* section3 */}  
     <Title>{titleAbout}</Title>
     <SubTitle>{subTitle}</SubTitle>
+    <div>
+    <subTitle>{kickeraboutClinic}</subTitle>
+      {bannerList.map((items, index) => (
+            <div key={index}>
+             <img src={items.url} alt="" />
+            </div>
+        ))}        
+      </div>
+      {/* button */}
+      <div style={{display:"flex"}}>{btngroup.map((btngroup, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center" }}>
+              <ContainDes>
+                <Title style={{textAlign:"start"}}>{btngroup.btngroup}</Title>
+                </ContainDes>
+            </div>
+          ))}
+          </div>
+          {/* carousel */}
     <div style={{display:"none"}}>
     {data.map((items, i) => (
       <div key={i}>

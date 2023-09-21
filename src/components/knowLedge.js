@@ -54,7 +54,7 @@ const knowLedgeComponents = ({ data, title }) => {
         {/* <Border/> */}
       </Title>
       <Swiper
-          direction={'vertical'} 
+          // direction={'vertical'} 
           slidesPerView={1}
           pagination={{
             clickable: true,
