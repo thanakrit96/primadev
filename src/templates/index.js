@@ -101,6 +101,7 @@ const IndexPage = ({ data }) => {
       <Element name="aboutUs">
         
         <AboutComponents
+          bannerList={bannerAboutUs} 
           whyprima={whyPrima}
           serviceprima={serviceprima}
           titleAbout={titleAboutCLinic}

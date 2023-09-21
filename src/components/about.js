@@ -102,7 +102,7 @@ const ContainImg = styled.div`
   text-align: -webkit-center;
 `;
 
-const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima }) => {
+const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima,bannerList }) => {
   return (
     <div className="container mx-auto">      
       {/* section1 */}
@@ -116,7 +116,7 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima })
                 <p>{whyprima.des}</p>
                 </ContainDes>
                 <ContainImg>
-                <img src={whyprima.whypic.url} alt="" style={{ width: "20vw", height: "20vw",border:"solid ",borderRadius: "12px",marginTop:"2em" }} />
+                <img src={whyprima.whypic.url} alt="" style={{ width: "20vw",border:"solid ",borderRadius: "12px",marginTop:"2em" }} />
                 </ContainImg>
             </div>
           ))}
@@ -143,8 +143,10 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima })
       </div>
       {/* </div> */}
       {/* section3 */}
+      {/* <div>{bannerList}</div> */}
     <Title>{titleAbout}</Title>
     <SubTitle>{subTitle}</SubTitle>
+    <div style={{display:"none"}}>
     {data.map((items, i) => (
       <div key={i}>
         <Fade bottom>
@@ -162,7 +164,7 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima })
         </Fade>
       </div>
     ))
-  }
+  }</div>
     </div >
   );
 };
