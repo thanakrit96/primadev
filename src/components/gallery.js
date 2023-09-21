@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper/core";
+// import { data } from "autoprefixer";
 
 
 SwiperCore.use([Navigation, Autoplay]);
@@ -105,7 +106,10 @@ const ControlButton = styled.button`
 
 
 
-const GalleryComponents = ({ data, title }) => {
+const GalleryComponents = ({ data, title,reviewadmin }) => {
+  console.log(data)
+  console.log(title)
+  console.log(reviewadmin)
   const [swiper, setSwiper] = useState(null);
   const [activeButton, setActiveButton] = useState("play");
 
@@ -140,44 +144,24 @@ const GalleryComponents = ({ data, title }) => {
   return (
     <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",backgroundColor:"#FFFF" }}>
       <div style={{ padding: "1em" }}>
-        <Title>ลูกค้าของเรา</Title>
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
-          navigation
-          loop
-          autoplay={{ delay: 3000 }}
-          onSwiper={setSwiper}
-        >
-          <Gallery>
-            {data.map((items, index) => (
-              <SwiperSlide key={index} style={{ height: "500px" }}>
-                <div
-                  style={{
-                    borderRadius: "12px",
-                    boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",
-                    position: "relative",
-                  }}
-                >
-                  <Pics key={index}>
-                    <img src={items.url} alt="" />
-                  </Pics>
-                  <div
-                    style={{
-                      position: "relative",
-                      bottom: "10px",
-                      color: "black",
-                      padding: "5px 5px 5px 5px",
-                      fontSize: "16px",
-                    }}
-                  >
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Gallery>
-        </Swiper>
+        <Title>{title}</Title>
+        <Swiper slidesPerView={3} spaceBetween={30} navigation loop autoplay={{ delay: 3000 }} onSwiper={setSwiper}>
+  <Gallery>
+    {data.map((items, index) => (
+      <SwiperSlide key={index} style={{ height: "500px" }}>
+        <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", position: "relative" }}>
+          <Pics key={index}>
+            <img src={items.imgreview.url} alt="" /> {/* Display the image */}
+          </Pics>
+          <div style={{ position: "relative", bottom: "10px", color: "black", padding: "5px 5px 5px 5px", fontSize: "16px" }}>
+            <Title>{items.reviewadmin}</Title>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Gallery>
+</Swiper>
+
         <ButtonContainer>
           <ControlButton
             onClick={goPrev}
