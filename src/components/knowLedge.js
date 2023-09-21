@@ -14,14 +14,14 @@ const Title = styled.div`
   }
 `;
 
-const Content = styled.div`
-  width: 100%;
-  padding: 10px 10%;
-  @media (max-width: 700px) {
-      padding: 10px 10px;
-    }
+// const Content = styled.div`
+//   width: 100%;
+//   padding: 10px 10%;
+//   @media (max-width: 700px) {
+//       padding: 10px 10px;
+//     }
 
-`;
+// `;
 
 const TextDescription = styled.div`
   width: 100%;
@@ -40,11 +40,11 @@ const TextDescription = styled.div`
   }
 `;
 
-const Border = styled.div`
-  border: 1px solid #e1ad63;
-  width: 90%;
-  margin: auto;
-`;
+// const Border = styled.div`
+//   border: 1px solid #e1ad63;
+//   width: 90%;
+//   margin: auto;
+// `;
 
 const knowLedgeComponents = ({ data, title }) => {
   return (

@@ -4,14 +4,14 @@ import PlayUrlContext from "~/context/play-url";
 import GlobalStyle from "~/styles/js/global";
 import HeaderComponents from "~/components/header";
 import FooterComponents from "~/components/footer";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 
-const Container = styled.div`
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-`;
+// const Container = styled.div`
+//   width: 100%;
+//   height: auto;
+//   margin: 0 auto;
+// `;
 
 const Layout = ({ children, logo, icon, titleBtn }) => {
   // const children1 = children.slice(3);

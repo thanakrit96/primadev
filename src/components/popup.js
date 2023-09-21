@@ -45,25 +45,25 @@ const Box = styled.div`
   }
 `;
 
-const CloseIcon = styled.span`
-  content: "x";
-  cursor: pointer;
-  position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
-  background: #ededed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  line-height: 20px;
-  text-align: center;
-  border: 1px solid #999;
-  font-size: 20px;
+// const CloseIcon = styled.span`
+//   content: "x";
+//   cursor: pointer;
+//   position: fixed;
+//   right: calc(15% - 30px);
+//   top: calc(100vh - 85vh - 33px);
+//   background: #ededed;
+//   width: 25px;
+//   height: 25px;
+//   border-radius: 50%;
+//   line-height: 20px;
+//   text-align: center;
+//   border: 1px solid #999;
+//   font-size: 20px;
 
-  @media (max-width: 480px) {
-    margin-top: calc(100vh - 80vh - 33px);
-  }
-`;
+//   @media (max-width: 480px) {
+//     margin-top: calc(100vh - 80vh - 33px);
+//   }
+// `;
 
 const Button = styled.div`
   width: 100%;
@@ -92,10 +92,10 @@ const Popup = (props) => {
   return (
     <PopupBox onClick={props.handleClose}>
       <Box>
-        <img src={props.content} alt="" />
+        <img src={props.content} alt="" rel="noreferrer"  />
         {props.isOpenButton && (
           <Button>
-            <a href={props.line[3].link} target="_blank">
+            <a href={props.line[3].link} target="_blank" rel="noreferrer">
               <ButtonBuy>{props.titleBtn}</ButtonBuy>
             </a>
           </Button>

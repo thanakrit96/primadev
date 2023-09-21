@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import background from "~/images/bg_promotion.png";
+// import background from "~/images/bg_promotion.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation } from 'swiper/modules';
-import { Navigation, Pagination } from 'swiper';
+// import { Navigation, Pagination } from 'swiper';
 
 const Title = styled.div`
   width: 100%;
@@ -20,28 +20,28 @@ const Title = styled.div`
   }
 `;
 
-const Card = styled.div`
-  width: 100%;
-  background-size: 100% 100%;
-  display: flex;
-  flex-direction:column;
-  // background-image: url(${background});
-  img {
-    width: 150px;
-    height: auto;
-  }
-`;
+// const Card = styled.div`
+//   width: 100%;
+//   background-size: 100% 100%;
+//   display: flex;
+//   flex-direction:column;
+//   // background-image: url(${background});
+//   img {
+//     width: 150px;
+//     height: auto;
+//   }
+// `;
 
-const Content = styled.div`
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr);
-  // grid-gap: 1rem;
-  margin-top: 10px;
+// const Content = styled.div`
+//   // display: grid;
+//   // grid-template-columns: repeat(2, 1fr);
+//   // grid-gap: 1rem;
+//   margin-top: 10px;
 
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`;
+//   @media (max-width: 1200px) {
+//     grid-template-columns: repeat(1, 1fr);
+//   }
+// `;
 
 const Text = styled.div`  
   height: 120px;
@@ -208,11 +208,11 @@ const ButtonCate = styled.button`
   }
 `;
 
-const Border = styled.div`
-  border: 1px solid #e1ad63;
-  width: 90%;
-  margin: auto;
-`;
+// const Border = styled.div`
+//   border: 1px solid #e1ad63;
+//   width: 90%;
+//   margin: auto;
+// `;
 
 const programComponents = ({
   data,
@@ -272,7 +272,7 @@ const programComponents = ({
                 </a>
               </Button>  */}
                   <Button>
-                    <a href={line[1].link} target="_blank">
+                    <a href={line[1].link} target="_blank" rel="noreferrer">
                       <ButtonBuy style={{ transform: "translateY(50%)", position: "absolute", bottom: "0" }} theme={"#e1ad63"}>{titleBtnBuy}</ButtonBuy>
                     </a>
                   </Button>

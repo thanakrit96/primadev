@@ -55,11 +55,11 @@ const Pics = styled.div`
   }
 `;
 
-const Border = styled.div`
-  border: 1px solid #e1ad63;
-  width: 90%;
-  margin: auto;
-`;
+// const Border = styled.div`
+//   border: 1px solid #e1ad63;
+//   width: 90%;
+//   margin: auto;
+// `;
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -138,7 +138,7 @@ const GalleryComponents = ({ data, title }) => {
 
 
   return (
-    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)" }}>
+    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",backgroundColor:"#FFFF" }}>
       <div style={{ padding: "1em" }}>
         <Title>ลูกค้าของเรา</Title>
         <Swiper

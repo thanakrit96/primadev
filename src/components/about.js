@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
-import { Button } from "react-scroll";
+// import { Button } from "react-scroll";
 
 const Title = styled.div`
   width: 100%;

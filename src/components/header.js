@@ -195,7 +195,7 @@ const headerComponents = ({ data, icon, titleBtn}) => {
                 icon.map((items, index) => {
                   return (
                     <Icon key={index}>
-                      <a href={items.link} target="_blank">
+                      <a href={items.link} target="_blank" rel="noreferrer">
                         <img src={items.icon.url} alt="" />
                       </a>
                     </Icon>
@@ -207,7 +207,7 @@ const headerComponents = ({ data, icon, titleBtn}) => {
             <img src={data ? data.url : ""} alt="" />
           </Logo>
           <RightContent>
-            <a href={icon && icon[3].link} target="_blank">
+            <a href={icon && icon[3].link} target="_blank" rel="noreferrer">
               <ButtonReservation>{titleBtn}</ButtonReservation>
             </a>
           </RightContent>

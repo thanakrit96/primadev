@@ -65,10 +65,10 @@ const TextDescription = styled.div`
   }
 `;
 
-const Border = styled.div`
-  border: 2px solid #e1ad63;
-  width: 100%;
-`;
+// const Border = styled.div`
+//   border: 2px solid #e1ad63;
+//   width: 100%;
+// `;
 const Partner = styled.div`
   display: grid;
   align-items: center;
@@ -90,7 +90,7 @@ const Partner = styled.div`
 
 const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
   return (
-    <div style={{ backgroundColor: "#accbb6" }}>
+    <div style={{ backgroundColor: "#accbb6",marginTop:"2em" }}>
       <div className="container mx-auto">
         {logo && (
           <LogoPrima>
@@ -106,8 +106,8 @@ const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
             <IconContent>
               {icon.map((items, index) => (
                 <Icon key={index}>
-                  <a href={items.link} target="_blank">
-                    <img src={items.icon.url} alt="" />
+                  <a href={items.link} target="_blank" rel="noreferrer">
+                    <img src={items.icon.url} alt="" rel="noreferrer"/>
                   </a>
                 </Icon>
               ))}

@@ -93,7 +93,6 @@ const contactComponents = ({ icon, contact }) => {
       {contact.map((items) => (
         <div className="">
           <Title>{items.title}</Title>
-          {/* <Border /> */}
           <TextDescription
             dangerouslySetInnerHTML={{
               __html: items.description,

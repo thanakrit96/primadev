@@ -100,7 +100,6 @@ const IndexPage = ({ data }) => {
         </Element>
       </Fade>
       <Element name="aboutUs">
-        
         <AboutComponents
           kickeraboutClinic={kickeraboutClinic}
           bannerList={bannerAboutUs} 
