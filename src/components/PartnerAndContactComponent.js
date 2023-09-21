@@ -7,6 +7,7 @@ const LogoPrima = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 20%;
+  padding-top: 2vw;
 `;
 
 const Text = styled.div`
@@ -23,6 +24,12 @@ const Icon = styled.div`
     width: 40px;
     height: 40px;
     margin: 0 10px;
+    transition: filter 0.3s;
+  }
+
+  img:hover {
+    filter: brightness(1.2);
+    fill: ${(props) => (props.active ? "#cba772" : "#cba772")};
   }
 `;
 
@@ -31,7 +38,7 @@ const IconContent = styled.div`
   width: 100%;
   height: 100px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0 20%;
 `;
 
@@ -75,7 +82,8 @@ const Partner = styled.div`
   width: 100%;
   justify-content: space-around;
   grid-gap: 1vw;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 8vw);
+  grid-template-rows: 110px;
   img {
     width: 80%;
     height: 0 auto;
@@ -90,7 +98,7 @@ const Partner = styled.div`
 
 const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
   return (
-    <div style={{ backgroundColor: "#accbb6",marginTop:"2em" }}>
+    <div style={{ backgroundColor: "#accbb6", marginTop: "2em" }}>
       <div className="container mx-auto">
         {logo && (
           <LogoPrima>
@@ -107,7 +115,7 @@ const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
               {icon.map((items, index) => (
                 <Icon key={index}>
                   <a href={items.link} target="_blank" rel="noreferrer">
-                    <img src={items.icon.url} alt="" rel="noreferrer"/>
+                    <img src={items.icon.url} alt="" rel="noreferrer" />
                   </a>
                 </Icon>
               ))}
@@ -134,7 +142,7 @@ const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
                 </div>
               ))}
               {data && (
-                <Partner style={{ gridTemplateColumns: "repeat(3, 8vw)", gridTemplateRows: "100px" }}>
+                <Partner>
                   {data.map((items) => (
                     <div key={items.id}>
                       <img src={items.image.url} alt="" />
