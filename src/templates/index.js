@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
   const logo = _data.logo;
   const iconService = _data.service;
   const bannerAboutUs = _data.imageaboutus;
-  const imageatmosphere = _data.imageatmosphere;
+  // const imageatmosphere = _data.imageatmosphere;
   const content = _data.content;
   const icon = _data.social;
   const program = _data.program;
@@ -53,6 +53,10 @@ const IndexPage = ({ data }) => {
   const whyPrima = _data.whyprima;
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
+  
+  const review = _data.review;
+  // const reviewadmin = _data.reviewadmin;
+
   const [detailPopup, setPopup] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopupVaccine, setPopupVaccine] = useState(true);
@@ -142,7 +146,11 @@ const IndexPage = ({ data }) => {
       </Fade>
       <Fade bottom>
         <Element name="review">
-          <GalleyComponents data={imageatmosphere} title={titleReview}/>
+          {/* <GalleyComponents data={imageatmosphere} title={titleReview}/> */}
+          <GalleyComponents 
+          data={review} 
+          // reviewadmin={reviewadmin} 
+          title={titleReview}/>
         </Element>
       </Fade>
       {/* <Fade bottom>
@@ -199,6 +207,7 @@ export const query = graphql`
         image {
           url
         }
+        title
       }
       social {
         icon {
@@ -267,6 +276,12 @@ export const query = graphql`
       kicker
       imagemap {
         url
+      }
+      review{
+        imgreview{
+          url
+        }
+        reviewadmin
       }
       mapurl
       titleimageandatmosphere

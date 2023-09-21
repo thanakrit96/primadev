@@ -263,7 +263,8 @@ const programComponents = ({
                     onClick={() => [
                       setPopup(items.imagedetail.url),
                       togglePopup(),
-                    ]}> <h2>
+                    ]}> 
+                    <h2>
                       {titleDetail}</h2>
                   </Text>
                   {/* <Button> //use for group//
