@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import background from "~/images/bg_promotion.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import './serpic.css'
 // import { Navigation } from 'swiper/modules';
 // import { Navigation, Pagination } from 'swiper';
 
@@ -46,7 +46,7 @@ const Title = styled.div`
 const Text = styled.div`  
   height: 120px;
 
-  padding: 5px 5px;
+  padding: 5px 1em;
   h2 {
     font-size: 2vw;
   }
@@ -227,12 +227,9 @@ const programComponents = ({
   titlebtncombined,
 }) => {
   return (
-    <div
-    // className="container mx-auto" 
-    >
+    <div>
       <Title>
         {title}
-        {/* <Border /> */}
       </Title>
       <ButtonC style={{paddingBottom: "2vw"}}>
           <ButtonCate style={{marginRight: "1vw"}} theme={"#e1ad63"}>{btnteraphy}</ButtonCate>
@@ -250,22 +247,27 @@ const programComponents = ({
           }}>
           {data.map((items, index) => (
             <SwiperSlide key={index} style={{ height: "700px", margin: ".5em" }} >
-              <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", width: "20em", height: "621px", position: "relative" }}>
-                <img style={{ borderRadius: "12px 12px 0 0" }} src={items.image.url} alt="" />
+                <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", width: "20em", height: "621px", position: "relative" }}>
+                <img  className="card-flyer" style={{ borderRadius: "12px 12px 0 0" }} src={items.image.url} alt="" />
                 <div class="w-100">
-                  <Text>
+                  <Text >
                     <h2>{items.title}</h2>
                     <p>{items.description}</p>
-                    <p>{items.pricediscound}</p>
-                    <p>{items.price}</p>
+                    <div style={{position:"absolute",bottom:"0"}}>
+                    <div style={{display:"flex"}}>   
+                    <p style={{textDecorationLine:"line-through"}}>{items.pricediscound}</p>
+                    <p style={{}}>{items.price}</p>
+                    </div> 
+                   </div>
                   </Text>
                   <Text
                     onClick={() => [
                       setPopup(items.imagedetail.url),
                       togglePopup(),
                     ]}> 
-                    <h2>
-                      {titleDetail}</h2>
+                    <h2 style={{textDecorationLine:"underline"}}>
+                      {titleDetail}
+                      </h2>
                   </Text>
                   {/* <Button> //use for group//
                 <a href={line[3].link} target="_blank">

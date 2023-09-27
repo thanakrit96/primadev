@@ -13,8 +13,8 @@ import Fade from "react-reveal/Fade";
 import * as Scroll from "react-scroll";
 import Popup from "../components/popup";
 // import Partner from "../components/partner";
-import { Helmet } from 'react-helmet';
-import dinoFavicon from "../images/icon_logo.png"
+import { Helmet } from "react-helmet";
+import dinoFavicon from "../images/icon_logo.png";
 import PartnerAndContactComponent from "../components/PartnerAndContactComponent";
 
 let Element = Scroll.Element;
@@ -53,17 +53,34 @@ const IndexPage = ({ data }) => {
   const whyPrima = _data.whyprima;
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
-  
+
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
 
   const [detailPopup, setPopup] = useState("");
+  const [aboutData, setAboutData] = useState(
+    aboutClinic.filter((items) => items.title === "ultrasound")
+  );
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopupVaccine, setPopupVaccine] = useState(true);
   const [getSection, setSection] = useState("");
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
+
+  const dataText = async (data) => {
+    const filterData = await aboutClinic.filter(
+      (items) => items.title === data.btngroup
+    );
+    console.log(filterData);
+    setAboutData(filterData);
+  };
+
+  // useEffect(async() => {
+  //   const filterData = await aboutClinic.filter((items) => items.title === 'ultrasound')
+  //   console.log(filterData)
+  //   setAboutData(filterData)
+  // }, []);
 
   const togglePopupVaccine = () => {
     setPopupVaccine(!isOpenPopupVaccine);
@@ -100,18 +117,23 @@ const IndexPage = ({ data }) => {
       </Fade>
       <Fade bottom>
         <Element name="service">
-          <ServicesComponents data={iconService} selectSection={setSection} title={titleService} />
+          <ServicesComponents
+            data={iconService}
+            selectSection={setSection}
+            title={titleService}
+          />
         </Element>
       </Fade>
       <Element name="aboutUs">
         <AboutComponents
+          dataText={dataText}
           kickeraboutClinic={kickeraboutClinic}
-          bannerList={bannerAboutUs} 
+          bannerList={bannerAboutUs}
           whyprima={whyPrima}
           serviceprima={serviceprima}
           titleAbout={titleAboutCLinic}
           subTitle={subTitleAboutCLinic}
-          data={aboutClinic}
+          data={aboutData}
           btngroup={btngroup}
         />
       </Element>
@@ -141,16 +163,17 @@ const IndexPage = ({ data }) => {
       </Fade> */}
       <Fade bottom>
         <Element name="knowledge">
-          <KnowLedge data={content} title={titleKnowledge}/>
+          <KnowLedge data={content} title={titleKnowledge} />
         </Element>
       </Fade>
       <Fade bottom>
         <Element name="review">
           {/* <GalleyComponents data={imageatmosphere} title={titleReview}/> */}
-          <GalleyComponents 
-          data={review} 
-          // reviewadmin={reviewadmin} 
-          title={titleReview}/>
+          <GalleyComponents
+            data={review}
+            // reviewadmin={reviewadmin}
+            title={titleReview}
+          />
         </Element>
       </Fade>
       {/* <Fade bottom>
@@ -160,14 +183,14 @@ const IndexPage = ({ data }) => {
         <Partner data={partner} title={titlePartner}/>
       </Fade> */}
       <Fade bottom>
-      <PartnerAndContactComponent
-        icon={icon}
-        contact={textContact}
-        data={partner}
-        title={titlePartner}
-        logo={logo}
-  />
-</Fade>
+        <PartnerAndContactComponent
+          icon={icon}
+          contact={textContact}
+          data={partner}
+          title={titlePartner}
+          logo={logo}
+        />
+      </Fade>
       <Fade bottom>
         <MapComponents data={map} url={mapUrl} />
       </Fade>
@@ -250,11 +273,12 @@ export const query = graphql`
         image {
           url
         }
-        description    
+        description
       }
-      btngroup{
+      btngroup {
+        title
         btngroup
-      }     
+      }
       whyprima {
         des
         kicker
@@ -277,8 +301,8 @@ export const query = graphql`
       imagemap {
         url
       }
-      review{
-        imgreview{
+      review {
+        imgreview {
           url
         }
         reviewadmin

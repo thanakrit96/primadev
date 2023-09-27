@@ -107,9 +107,9 @@ const ControlButton = styled.button`
 
 
 const GalleryComponents = ({ data, title,reviewadmin }) => {
-  console.log(data)
-  console.log(title)
-  console.log(reviewadmin)
+  // console.log(data)
+  // console.log(title)
+  // console.log(reviewadmin)
   const [swiper, setSwiper] = useState(null);
   const [activeButton, setActiveButton] = useState("play");
 
@@ -154,14 +154,13 @@ const GalleryComponents = ({ data, title,reviewadmin }) => {
             <img src={items.imgreview.url} alt="" /> {/* Display the image */}
           </Pics>
           <div style={{ position: "relative", bottom: "10px", color: "black", padding: "5px 5px 5px 5px", fontSize: "16px" }}>
-            <Title>{items.reviewadmin}</Title>
+            <h2>{items.reviewadmin}</h2>
           </div>
         </div>
       </SwiperSlide>
     ))}
   </Gallery>
 </Swiper>
-
         <ButtonContainer>
           <ControlButton
             onClick={goPrev}
