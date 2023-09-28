@@ -237,7 +237,24 @@ const ContainerT = styled.div`
     max-width: 1201px
   }
   @media (min-width: 640px) {
-    max-width: 1441px;
+    max-width: 1640px;
+  }
+`
+
+const ContainBtn = styled.div`
+  display: flex;
+  padding: 0px 4vw 2vw;
+
+  @media (min-width: 1441px) {
+    
+  }
+  @media (min-width: 1080px) {
+    
+  }
+  @media (max-width: 640px) {
+    display: grid;
+    grid-template-columns: repeat(2 ,40vw);
+    justify-content: center;
   }
 `
 
@@ -301,12 +318,12 @@ const aboutComponents = ({ titleAbout, subTitle, data, whyprima, serviceprima, b
           ))}
         </div>
         {/* button */}
-        <div style={{ display: "flex", padding: "0 4vw 2vw 4vw" }}>{btngroup.map((btngroup, i) => (
+        <ContainBtn>{btngroup.map((btngroup, i) => (
           <ContainBut>
             <Title3>{btngroup.btngroup}</Title3>
           </ContainBut>
         ))}
-        </div>
+        </ContainBtn>
         {/* carousel */}
         <div style={{ display: "none" }}>
           {data.map((items, i) => (
