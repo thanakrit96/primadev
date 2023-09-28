@@ -258,7 +258,7 @@ const aboutComponents = ({
   kickeraboutClinic,
   btngroup,
 }) => {
-  console.log("test", data);
+  // console.log("test", data);
   return (
     <ContainerT className="container mx-auto">
       {/* section1 */}
@@ -365,20 +365,20 @@ const aboutComponents = ({
           ))}
         </div>
         {/* group service */}
-        <div style={{ display: "" }}>
+        <div style={{}}>
           {data.map((items, i) => (
             <div key={i}>
               <Fade style={{ width: "50%" }} bottom>
-                <Content style={{ display: "flex", border: "solid red" }}>
+                <Content style={{ display: "flex",}}>
                   <img style={{ width: "25%" }} src={items.image.url} alt="" />
-                  <div>
+                  <div style={{backgroundColor:"#F5F5F5"}}>
                     <SubTitleInContent>{items.subtitle}</SubTitleInContent>
                     <TextDescription
                       dangerouslySetInnerHTML={{
                         __html: items.description,
                       }}
                     />
-                    {console.log(items.description)}
+                    {/* {console.log(items.description)} */}
                   </div>
                 </Content>
               </Fade>

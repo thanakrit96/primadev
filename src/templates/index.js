@@ -53,10 +53,8 @@ const IndexPage = ({ data }) => {
   const whyPrima = _data.whyprima;
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
-
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
-
   const [detailPopup, setPopup] = useState("");
   const [aboutData, setAboutData] = useState(
     aboutClinic.filter((items) => items.title === "ultrasound")
@@ -72,7 +70,7 @@ const IndexPage = ({ data }) => {
     const filterData = await aboutClinic.filter(
       (items) => items.title === data.btngroup
     );
-    console.log(filterData);
+    // console.log(filterData);
     setAboutData(filterData);
   };
 
