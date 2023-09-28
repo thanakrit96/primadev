@@ -92,7 +92,7 @@ const Popup = (props) => {
   return (
     <PopupBox onClick={props.handleClose}>
       <Box>
-        <img src={props.content} alt="" rel="noreferrer"  />
+        <img src={props.content} alt="" rel="noreferrer" />
         {props.isOpenButton && (
           <Button>
             <a href={props.line[3].link} target="_blank" rel="noreferrer">

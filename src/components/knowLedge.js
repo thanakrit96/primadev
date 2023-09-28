@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Title = styled.div`
   width: 100%;
@@ -48,37 +48,57 @@ const TextDescription = styled.div`
 
 const knowLedgeComponents = ({ data, title }) => {
   return (
-    <div className="container mx-auto" style={{height:"40vw"}}>
+    <div className="container mx-auto" style={{ height: "40vw" }}>
       <Title>
         {title}
         {/* <Border/> */}
       </Title>
       <Swiper
-          // direction={'vertical'} 
-          slidesPerView={1}
-          pagination={{
-            clickable: true,
-          }}
-        >
-      {data.map((items, index) => {
-        return (           
-          <div key={index}>
-          <SwiperSlide >
-            <img style={{width:"20em", position:"absolute",borderRadius:"35px",zIndex:"1",transform:"translateY(7vw)"}} src={items.image ? items.image.url : ""} alt="" />
-            <div style={{position:"relative",border:"solid rgb(231 227 227) 1px",borderRadius:"20px"
-                          ,transform:"translateX(11vw)",height:"30vw",width:"50vw",
-                          backgroundColor:"#FFFF"}}>
-            <div>{items.title}</div>
-            {items.description && 
-            <TextDescription                
-                  dangerouslySetInnerHTML={{
-                    __html: items.description,
+        // direction={'vertical'}
+        slidesPerView={1}
+        pagination={{
+          clickable: true,
+        }}
+      >
+        {data.map((items, index) => {
+          return (
+            <div key={index}>
+              <SwiperSlide>
+                <img
+                  style={{
+                    width: "20em",
+                    position: "absolute",
+                    borderRadius: "35px",
+                    zIndex: "1",
+                    transform: "translateY(7vw)",
                   }}
-                />}</div>                 
-            </SwiperSlide>
-          </div>          
-        );
-      })}
+                  src={items.image ? items.image.url : ""}
+                  alt=""
+                />
+                <div
+                  style={{
+                    position: "relative",
+                    border: "solid rgb(231 227 227) 1px",
+                    borderRadius: "20px",
+                    transform: "translateX(11vw)",
+                    height: "30vw",
+                    width: "50vw",
+                    backgroundColor: "#FFFF",
+                  }}
+                >
+                  <div>{items.title}</div>
+                  {items.description && (
+                    <TextDescription
+                      dangerouslySetInnerHTML={{
+                        __html: items.description,
+                      }}
+                    />
+                  )}
+                </div>
+              </SwiperSlide>
+            </div>
+          );
+        })}
       </Swiper>
     </div>
   );

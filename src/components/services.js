@@ -40,12 +40,12 @@ const Content = styled.div`
   }
 `;
 
-const ContentServicesGrid= styled.div`
+const ContentServicesGrid = styled.div`
   width: 100%;
   height: auto;
   text-align: center;
   cursor: pointer;
-  background: #FFFF;
+  background: #ffff;
   padding: 20%;
   border-radius: 10px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
@@ -60,8 +60,13 @@ const ContentServicesGrid= styled.div`
   }
 
   :hover {
-    background: rgb(198,235,210);
-    background: linear-gradient(313deg,rgb(168 199 178) 0%,rgb(81 150 144) 49%,rgba(102,122,129,1) 100%);
+    background: rgb(198, 235, 210);
+    background: linear-gradient(
+      313deg,
+      rgb(168 199 178) 0%,
+      rgb(81 150 144) 49%,
+      rgba(102, 122, 129, 1) 100%
+    );
     transform: scale(1.15);
     transition: 0.25s;
   }
@@ -113,7 +118,7 @@ const ContentServicesGrid= styled.div`
 
 const servicesComponents = ({ data, selectSection, title }) => {
   return (
-    <div 
+    <div
     // style={{border:"solid orange"}}
     >
       {/* <Title>{title}</Title> */}

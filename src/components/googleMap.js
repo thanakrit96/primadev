@@ -19,12 +19,11 @@ const ImageMap = styled.div`
 `;
 
 const mapComponents = (data) => {
-
   return (
     <div>
       <ImageMap>
         <a href={data.url} target="_blank" rel="noreferrer">
-          <img src={data ? data.data.url : "" } alt="" />
+          <img src={data ? data.data.url : ""} alt="" />
         </a>
       </ImageMap>
     </div>
