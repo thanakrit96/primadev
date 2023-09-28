@@ -247,22 +247,22 @@ const ContainerT = styled.div`
   }
 `
 
-const ContainBtn = styled.div`
-  display: flex;
-  padding: 0px 4vw 2vw;
+// const ContainBtn = styled.div`
+//   display: flex;
+//   padding: 0px 4vw 2vw;
 
-  @media (min-width: 1441px) {
+//   @media (min-width: 1441px) {
     
-  }
-  @media (min-width: 1080px) {
+//   }
+//   @media (min-width: 1080px) {
     
-  }
-  @media (max-width: 640px) {
-    display: grid;
-    grid-template-columns: repeat(2 ,40vw);
-    justify-content: center;
-  }
-`;
+//   }
+//   @media (max-width: 640px) {
+//     display: grid;
+//     grid-template-columns: repeat(2 ,40vw);
+//     justify-content: center;
+//   }
+// `;
 
 const aboutComponents = ({
   titleAbout,
@@ -374,44 +374,6 @@ const aboutComponents = ({
           ))}
         </div>
         {/* button */}
-<<<<<<< HEAD
-        <ContainBtn>{btngroup.map((btngroup, i) => (
-          <ContainBut>
-            <Title3>{btngroup.btngroup}</Title3>
-          </ContainBut>
-        ))}
-        </ContainBtn>
-        {/* carousel */}
-        <div style={{ display: "none" }}>
-          <div style={{ display: "flex", padding: "0 4vw 2vw 4vw" }}>
-            {btngroup.map((btngroup, i) => (
-              <ContainBut key={i} onClick={() => dataText(btngroup)}>
-                <Title3>{btngroup.title}</Title3>
-              </ContainBut>
-            ))}
-          </div>
-          {/* group service */}
-          <div style={{ display: "" }}>
-            {data.map((items, i) => (
-              <div key={i}>
-                <Fade style={{ width: "50%" }} bottom>
-                  <Content style={{ display: "flex", border: "solid red" }}>
-                    <img style={{ width: "25%" }} src={items.image.url} alt="" />
-                    <div>
-                      <SubTitleInContent>{items.subtitle}</SubTitleInContent>
-                      <TextDescription
-                        dangerouslySetInnerHTML={{
-                          __html: items.description,
-                        }}
-                      />
-                      {console.log(items.description)}
-                    </div>
-                  </Content>
-                </Fade>
-              </div>
-            ))}
-          </div>
-=======
         <div style={{ display: "flex", padding: "0 4vw 2vw 4vw" }}>
           {btngroup.map((btngroup, i) => (
             <ContainBut key={i} onClick={() => dataText(btngroup)}>
@@ -439,7 +401,6 @@ const aboutComponents = ({
               </Fade>
             </div>
           ))}
->>>>>>> 8092fdb32a2dd6cdb5ebdd93102bdf340405f161
         </div>
       </div>
     </ContainerT>
