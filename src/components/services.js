@@ -19,21 +19,24 @@ const Content = styled.div`
   grid-gap: 4rem;
   padding: 2% 20%;
 
-  @media (max-width: 480px) {
-    grid-gap: 0rem;
-  }
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 680px) {
+  @media (max-width: 767px) {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1em;
-    // width: 80%;
-    // margin: auto;
-    // margin-top: 30px;
-    // margin: 10%;
+    padding: 10px 8%;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    grid-gap: 1.2rem;
+    padding: 15px 22%;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+  }
+
+  @media (min-width: 1200px) {
+
   }
 `;
 
@@ -44,7 +47,7 @@ const ContentServicesGrid= styled.div`
   cursor: pointer;
   background: #FFFF;
   padding: 20%;
-  border-radius:20px;
+  border-radius: 10px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
   h2 {
     margin-top: 20px;
@@ -61,6 +64,44 @@ const ContentServicesGrid= styled.div`
     background: linear-gradient(313deg,rgb(168 199 178) 0%,rgb(81 150 144) 49%,rgba(102,122,129,1) 100%);
     transform: scale(1.15);
     transition: 0.25s;
+  }
+
+  @media (max-width: 767px) {
+    height: 34vw;
+    padding: 15%;
+    img {
+      width: 40%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 14vw;
+    padding: 10%;
+    h2 {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    img {
+      width: 50%;
+      margin-top: 9px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    height: 14vw;
+    padding: 10%;
+    h2 {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    img {
+      width: 50%;
+      margin-top: 12px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+
   }
 `;
 
