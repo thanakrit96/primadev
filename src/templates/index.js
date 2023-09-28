@@ -50,8 +50,8 @@ const IndexPage = ({ data }) => {
   const whyPrima = _data.whyprima;
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
-  const btnprogram=_data.btnprogram;
-  console.log(btnprogram)
+  const btnprogram = _data.btnprogram;
+  console.log(btnprogram);
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
   const [detailPopup, setPopup] = useState("");

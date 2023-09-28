@@ -245,17 +245,17 @@ const ContainerT = styled.div`
   @media (min-width: 640px) {
     max-width: 1640px;
   }
-`
+`;
 
 // const ContainBtn = styled.div`
 //   display: flex;
 //   padding: 0px 4vw 2vw;
 
 //   @media (min-width: 1441px) {
-    
+
 //   }
 //   @media (min-width: 1080px) {
-    
+
 //   }
 //   @media (max-width: 640px) {
 //     display: grid;
@@ -386,9 +386,9 @@ const aboutComponents = ({
           {data.map((items, i) => (
             <div key={i}>
               <Fade style={{ width: "50%" }} bottom>
-                <Content style={{ display: "flex",}}>
+                <Content style={{ display: "flex" }}>
                   <img style={{ width: "25%" }} src={items.image.url} alt="" />
-                  <div style={{backgroundColor:"#F5F5F5"}}>
+                  <div style={{ backgroundColor: "#F5F5F5" }}>
                     <SubTitleInContent>{items.subtitle}</SubTitleInContent>
                     <TextDescription
                       dangerouslySetInnerHTML={{
