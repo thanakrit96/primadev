@@ -275,7 +275,7 @@ const aboutComponents = ({
   kickeraboutClinic,
   btngroup,
 }) => {
-  console.log("test", data);
+  // console.log("test", data);
   return (
     <ContainerT className="container mx-auto">
       {/* section1 */}
@@ -374,6 +374,7 @@ const aboutComponents = ({
           ))}
         </div>
         {/* button */}
+<<<<<<< HEAD
         <ContainBtn>{btngroup.map((btngroup, i) => (
           <ContainBut>
             <Title3>{btngroup.btngroup}</Title3>
@@ -410,6 +411,35 @@ const aboutComponents = ({
               </div>
             ))}
           </div>
+=======
+        <div style={{ display: "flex", padding: "0 4vw 2vw 4vw" }}>
+          {btngroup.map((btngroup, i) => (
+            <ContainBut key={i} onClick={() => dataText(btngroup)}>
+              <Title3>{btngroup.title}</Title3>
+            </ContainBut>
+          ))}
+        </div>
+        {/* group service */}
+        <div style={{}}>
+          {data.map((items, i) => (
+            <div key={i}>
+              <Fade style={{ width: "50%" }} bottom>
+                <Content style={{ display: "flex",}}>
+                  <img style={{ width: "25%" }} src={items.image.url} alt="" />
+                  <div style={{backgroundColor:"#F5F5F5"}}>
+                    <SubTitleInContent>{items.subtitle}</SubTitleInContent>
+                    <TextDescription
+                      dangerouslySetInnerHTML={{
+                        __html: items.description,
+                      }}
+                    />
+                    {/* {console.log(items.description)} */}
+                  </div>
+                </Content>
+              </Fade>
+            </div>
+          ))}
+>>>>>>> 8092fdb32a2dd6cdb5ebdd93102bdf340405f161
         </div>
       </div>
     </ContainerT>
