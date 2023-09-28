@@ -222,9 +222,7 @@ const programComponents = ({
   title,
   titleBtnBuy,
   titleDetail,
-  btnteraphy,
-  titlebtncnplan,
-  titlebtncombined,
+  btnprogram,
 }) => {
   return (
     <div>
@@ -232,10 +230,12 @@ const programComponents = ({
         {title}
       </Title>
       <ButtonC style={{paddingBottom: "2vw"}}>
-          <ButtonCate style={{marginRight: "1vw"}} theme={"#e1ad63"}>{btnteraphy}</ButtonCate>
-          <ButtonCate style={{marginRight: "1vw"}} theme={"#e1ad63"}>{titlebtncnplan}</ButtonCate>
-          <ButtonCate theme={"#e1ad63"}>{titlebtncombined}</ButtonCate>
-      </ButtonC>
+          {btnprogram.map((btnprogram, i) => (
+            <div>
+              <ButtonCate>{btnprogram.title}</ButtonCate>
+            </div>
+          ))}
+        </ButtonC>
       <div
         className="container mx-auto"
       >

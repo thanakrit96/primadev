@@ -47,12 +47,11 @@ const IndexPage = ({ data }) => {
   const titleBtnBuy = _data.titlebtnbuy;
   const titleDetail = _data.titledetail;
   const titlePartner = _data.titlepartner;
-  const btnteraphy = _data.btnteraphy;
-  const titlebtncnplan = _data.titlebtncnplan;
-  const titlebtncombined = _data.titlebtncombined;
   const whyPrima = _data.whyprima;
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
+  const btnprogram=_data.btnprogram;
+  console.log(btnprogram)
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
   const [detailPopup, setPopup] = useState("");
@@ -148,9 +147,7 @@ const IndexPage = ({ data }) => {
             title={titleProgram}
             titleBtnBuy={titleBtnBuy}
             titleDetail={titleDetail}
-            btnteraphy={btnteraphy}
-            titlebtncnplan={titlebtncnplan}
-            titlebtncombined={titlebtncombined}
+            btnprogram={btnprogram}
           />
         </Element>
       </Fade>
@@ -314,9 +311,10 @@ export const query = graphql`
       titlebtnbuy
       titledetail
       titlepartner
-      titlebtncombined
-      titlebtncnplan
-      btnteraphy
+      btnprogram {
+        title
+        btngroup
+      }
     }
   }
 `;
