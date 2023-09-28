@@ -59,7 +59,7 @@ const ContentServicesGrid= styled.div`
   :hover {
     background: rgb(198,235,210);
     background: linear-gradient(313deg,rgb(168 199 178) 0%,rgb(81 150 144) 49%,rgba(102,122,129,1) 100%);
-    transform: scale(1.05);
+    transform: scale(1.15);
     transition: 0.25s;
   }
 `;
