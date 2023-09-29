@@ -9,22 +9,26 @@ import SwiperCore, { Navigation, Autoplay } from "swiper/core";
 SwiperCore.use([Navigation, Autoplay]);
 
 const ConGal = styled.div`
-  max-width: 1400px;
-  margin-left: 12vw;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
     @media (max-width: 767px) {
-  
+      max-width: 391px;
+      height: 98vw;
+      margin-left: 4vw;
     }
 
     @media (min-width: 768px) and (max-width: 991px) {
-  
+      max-width: 569px;
     }
 
     @media (min-width: 992px) and (max-width: 1199px) {
-  
+      max-width: 769px;
     }
 
     @media (min-width: 1200px) and (max-width: 1440px) {
-  
+      max-width: 1024px;
+      margin-left: 14.4vw;
     }
 `
 
@@ -37,9 +41,28 @@ const Title = styled.div`
   text-transform: uppercase;
   padding: 0px 0px 0px 40px;
   margin-top: 30px;
-  p {
-    font-size: 24px;
+
+  @media (max-width: 767px) {
+    margin-top: 2px;
+    font-size: 4.5vw;
+    padding-left: 5px;
   }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 0px 0px 0px 10px;
+    margin-top: 1px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding: 0px 0px 0px 10px;
+    margin-top: 1px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    padding: 0px 0px 0px 20px;
+    margin-top: 1px;
+  }
+
 `;
 
 const Gallery = styled.div`
@@ -65,6 +88,7 @@ const Gallery = styled.div`
     -moz-column-width: 100%;
     column-width: 100%;
   }
+
 `;
 
 const Pics = styled.div`
@@ -75,6 +99,27 @@ const Pics = styled.div`
   img {
     width: 100%;
     border-radius: 12px;
+  }
+  @media (max-width: 767px) {
+    img {
+      width: 65vw;
+      height: 56vw;
+      max-width: 99vw;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    img {
+      width: 200vw;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    
   }
 `;
 
@@ -123,6 +168,69 @@ const ControlButton = styled.button`
   }
 `;
 
+const CustomSwiperSlide = styled(SwiperSlide)`
+  height: 20vw; 
+  padding: 0px 40px 0px 40px;
+  
+
+  @media (max-width: 767px) {
+    height: 72vw;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 33vw;
+    padding: 0px 10px 0px 10px ;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    height: 300px;
+    padding: 0px 10px 0px 10px ;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    height: 33vw;
+    padding: 0px 20px 0px 20px ;
+  }
+`
+
+const BlogSlide = styled.div`
+  border-radius: 12px; 
+  position: relative;
+  height: 29vw;
+  p {
+    font-size: 1.4vw;
+  }
+
+  @media (max-width: 767px) {
+    height: 50vw;
+    width: 29vw;
+    p {
+      font-size: 2.9vw;
+      width: 64vw;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 30vw;
+    p {
+      font-size: 1.3vw;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    height: 30vw;
+    p {
+      font-size: 1.3vw;
+    }
+  }
+  
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    height: 30vw;
+    p {
+      font-size: 1.39vw;
+    }
+  }
+`
 
 
 
@@ -164,22 +272,36 @@ const GalleryComponents = ({ data, title, reviewadmin }) => {
 
 
   return (
-    <ConGal style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF" }}>
+    <ConGal style={{ borderRadius: "12px", bottom: "10px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF" }}>
       <div style={{ padding: "1em" }}>
         <Title>{title}</Title>
-        <Swiper slidesPerView={3} spaceBetween={30} navigation loop autoplay={{ delay: 3000 }} onSwiper={setSwiper}>
+        <Swiper 
+        slidesPerView={3} 
+        spaceBetween={30} 
+        navigation 
+        loop 
+        autoplay={{ delay: 3000 }} 
+        onSwiper={setSwiper}
+        breakpoints={{
+          768: {
+            slidesPerView: 3,
+          },
+          0: {
+            slidesPerView: 1,
+          },
+        }}>
           <Gallery>
             {data.map((items, index) => (
-              <SwiperSlide key={index} style={{ height: "500px", padding: "0px 40px 0px 40px" }}>
-                <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", position: "relative" }}>
+              <CustomSwiperSlide key={index}>
+                <BlogSlide>
                   <Pics key={index}>
                     <img src={items.imgreview.url} alt="" /> {/* Display the image */}
                   </Pics>
-                  <div style={{ position: "relative", bottom: "10px", color: "black", padding: "5px 5px 5px 5px", fontSize: "16px" }}>
-                    <h2>{items.reviewadmin}</h2>
+                  <div style={{ position: "relative", color: "black", padding: "5px 5px 5px 5px", fontSize: "16px" }}>
+                    <p>{items.reviewadmin}</p>
                   </div>
-                </div>
-              </SwiperSlide>
+                </BlogSlide>
+              </CustomSwiperSlide>
             ))}
           </Gallery>
         </Swiper>
