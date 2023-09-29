@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 // import './serpic.css'
+
 // import { Navigation } from 'swiper/modules';
 // import { Navigation, Pagination } from 'swiper';
 
