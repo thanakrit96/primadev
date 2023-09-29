@@ -667,7 +667,7 @@ const aboutComponents = ({
                               __html: items.description,
                             }}
                           />
-                          {console.log(items.description)}
+                          {/* {console.log(items.description)} */}
                         </div>
                         <Innerimg2 />
                       </>

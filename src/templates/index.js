@@ -51,13 +51,19 @@ const IndexPage = ({ data }) => {
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
   const btnprogram = _data.btnprogram;
-  console.log(btnprogram);
+  // console.log(btnprogram)
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
   const [detailPopup, setPopup] = useState("");
   const [aboutData, setAboutData] = useState(
     aboutClinic.filter((items) => items.title === "ultrasound")
   );
+
+  const [dataDetailProgram, setDataDetailProgram] = useState(
+    program.filter((items) => items.category === "physicalTherapy")
+  );
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopupVaccine, setPopupVaccine] = useState(true);
   const [getSection, setSection] = useState("");
@@ -73,6 +79,16 @@ const IndexPage = ({ data }) => {
     setAboutData(filterData);
   };
 
+  // console.log(program)
+  const dataProgram = async (data) => {
+    console.log("dataprogram", data);
+    const filterData = await program.filter(
+      (items) => items.category === data.btngroup
+    );
+      console.log('filter', filterData)
+      setDataDetailProgram(filterData);
+  };
+  //  console.log(dataProgram)
   // useEffect(async() => {
   //   const filterData = await aboutClinic.filter((items) => items.title === 'ultrasound')
   //   console.log(filterData)
@@ -140,14 +156,15 @@ const IndexPage = ({ data }) => {
       <Fade bottom>
         <Element name="treatmentProgram">
           <ProgramComponents
-            data={program}
+            onclickDataProgram={dataProgram}
+            data={dataDetailProgram}
             setPopup={setPopup}
             togglePopup={togglePopup}
             line={icon}
             title={titleProgram}
             titleBtnBuy={titleBtnBuy}
             titleDetail={titleDetail}
-            btnprogram={btnprogram}
+            btnProgram={btnprogram}
           />
         </Element>
       </Fade>
@@ -245,6 +262,7 @@ export const query = graphql`
         currenturl
       }
       program {
+        category
         image {
           url
         }
