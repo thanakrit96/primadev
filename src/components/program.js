@@ -6,6 +6,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation } from 'swiper/modules';
 // import { Navigation, Pagination } from 'swiper';
 
+const ConPro = styled.div`
+max-width: 1440px;
+margin-left: auto;
+margin-right: auto;
+  @media (max-width: 767px) {
+    
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 569px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    max-width: 769px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    max-width: 1024px;
+  }
+`
+
 const Title = styled.div`
   width: 100%;
   padding-left: 15%;
@@ -192,20 +213,32 @@ const ButtonCate = styled.button`
   text-decoration: none;
   font-size: 1.5vw;
   text-transform: uppercase;
-  border-radius: 35px;
+  border-radius: 20px;
   border: 2px solid;
   cursor: pointer;
   font-size: 1.2vw;
+  margin-right: 1vw;
   &:hover {
     background-color: ${(props) => (props.active ? "#cba772" : "#cba772")};
     color: white;
   }
-  @media (max-width: 480px) {
-    font-size: 1.5vw;
+  @media (max-width: 767px) {
+    font-size: 2.5vw;
+    padding: 10px 5px 10px 5px;
+    width: 25vw;
+
   }
 
-  @media (max-width: 1200px) {
-    font-size: 2vw;
+  @media (min-width: 768px) and (max-width: 991px) {
+    
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    
   }
 `;
 
@@ -239,7 +272,7 @@ const programComponents = ({
           </div>
         ))}
       </ButtonC>
-      <div className="container mx-auto">
+      <ConPro>
         <Swiper
           slidesPerView={3}
           // navigation={true} modules={[Navigation]}
@@ -247,7 +280,15 @@ const programComponents = ({
           pagination={{
             clickable: true,
           }}
-        >
+          breakpoints={{
+            768: {
+              slidesPerView: 3,
+            },
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 240,
+            },
+          }}>
           {data.map((items, index) => (
             <SwiperSlide
               key={index}
@@ -319,7 +360,7 @@ const programComponents = ({
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </ConPro>
     </div>
   );
 };

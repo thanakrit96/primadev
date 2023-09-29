@@ -45,7 +45,8 @@ const Title = styled.div`
   @media (max-width: 767px) {
     margin-top: 2px;
     font-size: 4.5vw;
-    padding-left: 5px;
+    padding-left: 10vw;
+    margin-bottom: 2vw;
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
@@ -140,8 +141,8 @@ const ButtonContainer = styled.div`
 const ControlButton = styled.button`
   background-color: ${(props) => (props.active ? "#cba772" : "white")};
   color: ${(props) => (props.active ? "white" : "#cba772")};
-  width: 15px;
-  height: 15px;
+  width: 11px;
+  height: 11px;
   border: 1px solid #cba772;
   border-radius: 35px;
   padding: 5px 5px;
@@ -165,6 +166,15 @@ const ControlButton = styled.button`
     transform: ${(props) => (props.active ? "scale(0.9)" : "scale(1.1)")};
     box-shadow: ${(props) => (props.active ? "none" : "0px 4px 8px rgba(0, 0, 0, 0.2)")};
     padding: 5px 15px; /* Added padding for hover effect */
+  }
+  @media (max-width: 767px) {
+    &.custom-active {
+      transform: scale(0.6);
+    }
+  
+    &:hover {
+      transform: ${(props) => (props.active ? "scale(0.6)" : "scale(0.8)")};
+    }
   }
 `;
 

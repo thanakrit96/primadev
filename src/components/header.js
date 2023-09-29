@@ -155,9 +155,10 @@ const ButtonReservation = styled.button`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   transform: scale(0.8);
   width: 6em;
-  @media (max-width: 360px) {
+  @media (max-width: 767px) {
     font-size: 0.5vw;
     padding: 15px 15px;
+    width: -1em;
   }
   @media (max-width: 1080px) {
     font-size: 2vw;

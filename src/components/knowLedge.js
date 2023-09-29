@@ -6,9 +6,9 @@ import SwiperCore, { Navigation, Autoplay } from "swiper/core";
 SwiperCore.use([Navigation, Autoplay]);
 
 const Medical = styled.div`
-  max-width: 1440px;
+  max-width: 2040px;
   @media (max-width: 767px) {
-    
+    max-width: 440px;
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
@@ -16,11 +16,11 @@ const Medical = styled.div`
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
-    
+    max-width: 1024px;
   }
 
   @media (min-width: 1200px) and (max-width: 1440px) {
-    
+    max-width: 1440px;
   }
 `
 
@@ -87,7 +87,26 @@ const S4img = styled.div`
   img {
     border-radius: 20px;
     height: 22vw;
-    width: 29vw;
+    width: 24vw;
+  }
+  @media (max-width: 767px) {
+    transform: translate(14.5vw, 0vw);
+    img {
+      height: 62vw;
+      width: 64vw;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    
   }
 `
 
@@ -102,19 +121,21 @@ const Blogmed = styled.div`
   text-indent: 15vw;
 
   @media (max-width: 767px) {
-    
+    transform: translate(0vw, 30.6vw);
+    height: 110vw;
+    width: 92vw;
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    
+    width: 58vw;
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
-    
+    width: 61vw;
   }
 
   @media (min-width: 1200px) and (max-width: 1440px) {
-    width: 67.5vw;
+    width: 55.5vw;
   }
 `
 const Conmed = styled.div`
@@ -124,15 +145,17 @@ const Conmed = styled.div`
   margin-bottom: 2vw;
   
   @media (max-width: 767px) {
-    
+    margin-top: 2vw;
+    height: 142vw;
+    margin-left: 4vw;
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    
+    margin-left: 14vw;
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
-    
+    margin-left: 13vw;
   }
 
   @media (min-width: 1200px) and (max-width: 1440px) {
@@ -152,27 +175,32 @@ const ButtonContainer = styled.div`
   gap: 1vw;
 
   @media (max-width: 767px) {
-    
+    display: flex;
+    right: 0;
+    top: 0;
+    position: relative;
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    
+    right: 12.5vw;
+    top: 16.5vw;
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
-    
+    right: 11.5vw;
+    top: 17vw;
   }
 
   @media (min-width: 1200px) and (max-width: 1440px) {
-    
+    right: 14vw;
   }
 `;
 
 const ControlButton = styled.button`
   background-color: ${(props) => (props.active ? "#cba772" : "white")};
   color: ${(props) => (props.active ? "white" : "#cba772")};
-  width: 15px;
-  height: 15px;
+  width: 11px;
+  height: 11px;
   border: 1px solid #cba772;
   border-radius: 35px;
   padding: 5px 5px;
@@ -197,12 +225,40 @@ const ControlButton = styled.button`
     box-shadow: ${(props) => (props.active ? "none" : "0px 4px 8px rgba(0, 0, 0, 0.2)")};
     padding: 15px 5px; /* Added padding for hover effect */
   }
+
+  @media (max-width: 767px) {
+    display: flex;
+    right: 0;
+    top: 0;
+    margin-bottom: 3vw;
+    margin-top: -3vw;
+    &.custom-active {
+      background-color: #cba772;
+      color: white;
+      transform: scale(0.6);
+      box-shadow: none;
+      padding: 5px 15px;
+    }
+  
+    &:hover {
+      border-radius: 88px;
+      background-color: ${(props) => (props.active ? "#cba772" : "#cba772")};
+      color: white;
+      transform: ${(props) => (props.active ? "scale(0.6)" : "scale(0.8)")};
+      box-shadow: ${(props) => (props.active ? "none" : "0px 4px 8px rgba(0, 0, 0, 0.2)")};
+      padding: 5px 15px; /* Added padding for hover effect */
+    }
+  }
 `;
 
 const Contain4 = styled.div`
   display: flex;
   gap: 0.1vw;
   flex-direction: column;
+
+  @media (max-width: 767px) {
+    display: grid;
+  }
 `
 
 // const Border = styled.div`
