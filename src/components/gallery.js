@@ -7,13 +7,35 @@ import SwiperCore, { Navigation, Autoplay } from "swiper/core";
 
 
 SwiperCore.use([Navigation, Autoplay]);
+
+const ConGal = styled.div`
+  max-width: 1400px;
+  margin-left: 12vw;
+    @media (max-width: 767px) {
+  
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+  
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+  
+    }
+
+    @media (min-width: 1200px) and (max-width: 1440px) {
+  
+    }
+`
+
+
 const Title = styled.div`
   width: 100%;
   // text-align: center;
-  font-size: 5vw;
+  font-size: 2.5vw;
   color: darkgreen;
   text-transform: uppercase;
-  padding: 10px 0;
+  padding: 0px 0px 0px 40px;
   margin-top: 30px;
   p {
     font-size: 24px;
@@ -52,7 +74,7 @@ const Pics = styled.div`
   margin-bottom: 12px;
   img {
     width: 100%;
-    border-radius:12px;
+    border-radius: 12px;
   }
 `;
 
@@ -106,7 +128,7 @@ const ControlButton = styled.button`
 
 
 
-const GalleryComponents = ({ data, title,reviewadmin }) => {
+const GalleryComponents = ({ data, title, reviewadmin }) => {
   // console.log(data)
   // console.log(title)
   // console.log(reviewadmin)
@@ -142,25 +164,25 @@ const GalleryComponents = ({ data, title,reviewadmin }) => {
 
 
   return (
-    <div className="container mx-auto" style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)",backgroundColor:"#FFFF" }}>
+    <ConGal style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", backgroundColor: "#FFFF" }}>
       <div style={{ padding: "1em" }}>
         <Title>{title}</Title>
         <Swiper slidesPerView={3} spaceBetween={30} navigation loop autoplay={{ delay: 3000 }} onSwiper={setSwiper}>
-  <Gallery>
-    {data.map((items, index) => (
-      <SwiperSlide key={index} style={{ height: "500px" }}>
-        <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", position: "relative" }}>
-          <Pics key={index}>
-            <img src={items.imgreview.url} alt="" /> {/* Display the image */}
-          </Pics>
-          <div style={{ position: "relative", bottom: "10px", color: "black", padding: "5px 5px 5px 5px", fontSize: "16px" }}>
-            <h2>{items.reviewadmin}</h2>
-          </div>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Gallery>
-</Swiper>
+          <Gallery>
+            {data.map((items, index) => (
+              <SwiperSlide key={index} style={{ height: "500px", padding: "0px 40px 0px 40px" }}>
+                <div style={{ borderRadius: "12px", boxShadow: "2px 2px 8px 4px rgba(0, 0, 0, 0.1)", position: "relative" }}>
+                  <Pics key={index}>
+                    <img src={items.imgreview.url} alt="" /> {/* Display the image */}
+                  </Pics>
+                  <div style={{ position: "relative", bottom: "10px", color: "black", padding: "5px 5px 5px 5px", fontSize: "16px" }}>
+                    <h2>{items.reviewadmin}</h2>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Gallery>
+        </Swiper>
         <ButtonContainer>
           <ControlButton
             onClick={goPrev}
@@ -179,7 +201,7 @@ const GalleryComponents = ({ data, title,reviewadmin }) => {
           </ControlButton>
         </ButtonContainer>
       </div>
-    </div>
+    </ConGal>
   );
 };
 
