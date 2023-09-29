@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 // import './serpic.css'
 
 // import { Navigation } from 'swiper/modules';
@@ -223,16 +223,19 @@ const programComponents = ({
   title,
   titleBtnBuy,
   titleDetail,
-  btnprogram,
-  dataprogram,
+  btnProgram,
+  onclickDataProgram,
 }) => {
+  console.log("first", btnProgram);
   return (
     <div>
       <Title>{title}</Title>
       <ButtonC style={{ paddingBottom: "2vw" }}>
-        {btnprogram.map((btnprogram, i) => (
-          <div key={i} onClick={() => dataprogram(btnprogram)}>
-            <ButtonCate>{btnprogram.title}</ButtonCate>
+        {btnProgram.map((items, i) => (
+          <div key={i}>
+            <ButtonCate onClick={() => onclickDataProgram(items)}>
+              {items.title}
+            </ButtonCate>
           </div>
         ))}
       </ButtonC>
@@ -288,11 +291,15 @@ const programComponents = ({
                       {titleDetail}
                     </h2>
                   </Text>
-                  {/* <Button> //use for group//
-                <a href={line[3].link} target="_blank">
-                  <ButtonBuy style={{}} theme={"#e1ad63"}>{titleBtnBuy}</ButtonBuy>
-                </a>
-              </Button>  */}
+                  {/* <Button>
+                    {" "}
+                    //use for group//
+                    <a href={line[3].link} target="_blank">
+                      <ButtonBuy style={{}} theme={"#e1ad63"}>
+                        {titleBtnBuy}
+                      </ButtonBuy>
+                    </a>
+                  </Button> */}
                   <Button>
                     <a href={line[1].link} target="_blank" rel="noreferrer">
                       <ButtonBuy

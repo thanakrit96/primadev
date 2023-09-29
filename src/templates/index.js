@@ -51,13 +51,19 @@ const IndexPage = ({ data }) => {
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
   const btnprogram = _data.btnprogram;
+  // console.log(btnprogram)
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
   const [detailPopup, setPopup] = useState("");
   const [aboutData, setAboutData] = useState(
     aboutClinic.filter((items) => items.title === "ultrasound")
   );
-  
+
+  const [dataDetailProgram, setDataDetailProgram] = useState(
+    program.filter((items) => items.category === "physicalTherapy")
+  );
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopupVaccine, setPopupVaccine] = useState(true);
   const [getSection, setSection] = useState("");
@@ -72,17 +78,17 @@ const IndexPage = ({ data }) => {
     // console.log(filterData);
     setAboutData(filterData);
   };
- 
 
-// console.log(program)
+  // console.log(program)
   const dataProgram = async (data) => {
+    console.log("dataprogram", data);
     const filterData = await program.filter(
-      (items) => items.category === data.btnprogram
+      (items) => items.category === data.btngroup
     );
-    console.log(filterData);
-    // setAboutData(filterData);
+      console.log('filter', filterData)
+      setDataDetailProgram(filterData);
   };
- console.log(dataProgram)
+  //  console.log(dataProgram)
   // useEffect(async() => {
   //   const filterData = await aboutClinic.filter((items) => items.title === 'ultrasound')
   //   console.log(filterData)
@@ -150,15 +156,15 @@ const IndexPage = ({ data }) => {
       <Fade bottom>
         <Element name="treatmentProgram">
           <ProgramComponents
-            dataProgram={dataProgram}
-            data={program}
+            onclickDataProgram={dataProgram}
+            data={dataDetailProgram}
             setPopup={setPopup}
             togglePopup={togglePopup}
             line={icon}
             title={titleProgram}
             titleBtnBuy={titleBtnBuy}
             titleDetail={titleDetail}
-            btnprogram={btnprogram}
+            btnProgram={btnprogram}
           />
         </Element>
       </Fade>
