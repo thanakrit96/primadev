@@ -51,13 +51,13 @@ const IndexPage = ({ data }) => {
   const serviceprima = _data.serviceprima;
   const btngroup = _data.btngroup;
   const btnprogram = _data.btnprogram;
-  console.log(btnprogram);
   const review = _data.review;
   // const reviewadmin = _data.reviewadmin;
   const [detailPopup, setPopup] = useState("");
   const [aboutData, setAboutData] = useState(
     aboutClinic.filter((items) => items.title === "ultrasound")
   );
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopupVaccine, setPopupVaccine] = useState(true);
   const [getSection, setSection] = useState("");
@@ -72,7 +72,17 @@ const IndexPage = ({ data }) => {
     // console.log(filterData);
     setAboutData(filterData);
   };
+ 
 
+// console.log(program)
+  const dataProgram = async (data) => {
+    const filterData = await program.filter(
+      (items) => items.category === data.btnprogram
+    );
+    console.log(filterData);
+    // setAboutData(filterData);
+  };
+ console.log(dataProgram)
   // useEffect(async() => {
   //   const filterData = await aboutClinic.filter((items) => items.title === 'ultrasound')
   //   console.log(filterData)
@@ -140,6 +150,7 @@ const IndexPage = ({ data }) => {
       <Fade bottom>
         <Element name="treatmentProgram">
           <ProgramComponents
+            dataProgram={dataProgram}
             data={program}
             setPopup={setPopup}
             togglePopup={togglePopup}
@@ -245,6 +256,7 @@ export const query = graphql`
         currenturl
       }
       program {
+        category
         image {
           url
         }

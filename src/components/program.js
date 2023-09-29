@@ -223,13 +223,14 @@ const programComponents = ({
   titleBtnBuy,
   titleDetail,
   btnprogram,
+  dataprogram,
 }) => {
   return (
     <div>
       <Title>{title}</Title>
       <ButtonC style={{ paddingBottom: "2vw" }}>
         {btnprogram.map((btnprogram, i) => (
-          <div>
+          <div key={i} onClick={() => dataprogram(btnprogram)}>
             <ButtonCate>{btnprogram.title}</ButtonCate>
           </div>
         ))}
