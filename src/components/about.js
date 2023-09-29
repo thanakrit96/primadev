@@ -176,7 +176,8 @@ const SubTitle3 = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    
+    width: 33.5vw;
+    font-size: 1.69vw;
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
@@ -185,7 +186,7 @@ const SubTitle3 = styled.div`
   }
 
   @media (min-width: 1200px) and (max-width: 1440px) {
-    width: 37.5vw;
+    width: 33.5vw;
     font-size: 1.8vw;
   }
 `;
