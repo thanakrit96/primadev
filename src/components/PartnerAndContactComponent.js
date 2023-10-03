@@ -1,6 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/icon_logo.png";
+import { symbol } from "prop-types";
+
+const Confoot = styled.div`
+max-width: 1440px;
+margin-left: auto;
+margin-right: auto;
+  @media (max-width: 767px) {
+    height: 174vw;
+    max-width: 569px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 569px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    max-width: 769px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    max-width: 1024px;
+  }
+`
 
 const LogoPrima = styled.div`
   display: block;
@@ -16,6 +39,9 @@ const Text = styled.div`
   text-align: center;
   p {
     font-size: 2vw;
+  }
+  @media (max-width: 767px) {
+    font-size: 3.6vw;
   }
 `;
 
@@ -43,18 +69,27 @@ const IconContent = styled.div`
 `;
 
 const Title = styled.div`
-  width: 100%;
+  width: 16vw;
   font-size: 1.2vw;
   text-transform: uppercase;
   text-decoration-color: #e1ad63;
   padding: 0 10%;
   font-weight: bold;
-  @media (max-width: 1080px) {
-    font-size: 4vw;
+  @media (max-width: 767px) {
+    font-size: 3.6vw;
+    width: 46vw;
   }
 
-  @media (max-width: 480px) {
-    font-size: 3.5vw;
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 20vw;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    width: 22vw;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    width: 20vw;
   }
 `;
 
@@ -63,12 +98,20 @@ const TextDescription = styled.div`
   font-size: 1vw;
   text-transform: uppercase;
   padding: 0 11%;
-  @media (max-width: 1080px) {
+  @media (max-width: 767px) {
     font-size: 3vw;
   }
 
-  @media (max-width: 480px) {
-    font-size: 3vw;
+  @media (min-width: 768px) and (max-width: 991px) {
+    
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    
   }
 `;
 
@@ -89,17 +132,48 @@ const Partner = styled.div`
     height: 0 auto;
     margin: 0 10px;
   }
+
   @media (max-width: 400px) {
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
     margin: auto;
   }
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(3,25vw);
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    grid-template-rows: 32px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    grid-template-rows: 44px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    grid-template-rows: 70px;
+  }
 `;
+
+const Blogfoot = styled.div`
+  display: flex;
+  height: 20vw;
+  @media (max-width: 767px) {
+    display: contents;
+  }
+`
+
+const Innerfoot = styled.div`
+
+  @media (max-width: 767px) {
+    padding: auto;
+    width: auto;
+  }
+`
 
 const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
   return (
     <div style={{ backgroundColor: "#accbb6", marginTop: "2em" }}>
-      <div className="container mx-auto">
+      <Confoot>
         {logo && (
           <LogoPrima>
             <img src={logo} alt="" />
@@ -120,9 +194,9 @@ const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
                 </Icon>
               ))}
             </IconContent>
-            <div style={{ border: "solid purple 3px,", display: "flex", height: "20vw" }}>
+            <Blogfoot>
               {contact.slice(0, 2).map((items, index) => (
-                <div key={items.id} className="tt" style={{ padding: "1vw", flex: "none", width: "20vw" }}>
+                <Innerfoot key={items.id}>
                   <Title>{items.title}</Title>
                   <TextDescription
                     dangerouslySetInnerHTML={{
@@ -139,7 +213,7 @@ const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
                       />
                     </>
                   )}
-                </div>
+                </Innerfoot>
               ))}
               {data && (
                 <Partner>
@@ -149,10 +223,11 @@ const PartnerAndContactComponent = ({ data, title, icon, contact, }) => {
                     </div>
                   ))}
                 </Partner>
-              )}</div>
+              )}
+            </Blogfoot>
           </div>
         )}
-      </div>
+      </Confoot>
     </div>
   );
 };

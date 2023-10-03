@@ -281,8 +281,16 @@ const programComponents = ({
             clickable: true,
           }}
           breakpoints={{
-            768: {
+            1440: {
               slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 290,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 280,
             },
             0: {
               slidesPerView: 2,

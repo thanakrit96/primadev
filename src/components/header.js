@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 // import Util from "../util/util";
+
 const Logo = styled.div`
   width: 40%;
   img {
@@ -66,22 +67,35 @@ const IconContent = styled.div`
   width: 0 auto;
   align-items: center;
   justify-content: center;
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const Icon = styled.div`
   img {
     width: 60%;
     height: 60%;
-    margin: 10px 10px;
+    margin: 5px 5px;
   }
 
-  @media (max-width: 480px) {
-    margin: 0;
+  @media (max-width: 767px) {
+    margin 0;
   }
 
-  @media (min-width: 1080px) {
-    width: 70px;
-    height: 70px;
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 25px;
+    height: 25px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    width: 35px;
+    height: 35px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 
@@ -90,27 +104,42 @@ const TextLang = styled.div`
   font-size: 1.5vw;
   margin-left: 10px;
   color:#FFFF;
-  @media (max-width: 480px) {
-    font-size: 2.3vw;
+  @media (max-width: 767px) {
+    font-size: 3vw;
   }
 
-  @media (min-width: 1080px) {
-    font-size: 1.2vw;
+  @media (min-width: 768px) and (max-width: 991px) {
+    
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    
   }
 `;
 
 const TextLangForZh = styled.div`
   cursor: pointer;
-  margin-top: 3px;
-  font-size: 1vw;
+  font-size: 1.5vw;
   margin-left: 10px;
   color:#FFFF;
-  @media (max-width: 480px) {
-    font-size: 2vw;
+  @media (max-width: 767px) {
+    font-size: 3vw;
   }
 
-  @media (min-width: 1080px) {
-    font-size: 1vw;
+  @media (min-width: 768px) and (max-width: 991px) {
+    
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+
+  @media (min-width: 1200px) and (max-width: 1440px) {
+    
   }
 `;
 
@@ -154,7 +183,6 @@ const ButtonReservation = styled.button`
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   transform: scale(0.8);
-  width: 6em;
   @media (max-width: 767px) {
     font-size: 0.5vw;
     padding: 15px 15px;
@@ -185,10 +213,10 @@ const headerComponents = ({ data, icon, titleBtn}) => {
                 <Link to="/"style={{color:"#FFFF"}}>TH</Link>
               </TextLang>
               <TextLang>
-                <Link to="/en"style={{color:"#FFFF"}}>/ENG</Link>
+                <Link to="/en"style={{color:"#FFFF"}}>/ ENG</Link>
               </TextLang>
               <TextLangForZh>
-                <Link to="/zh"style={{color:"#FFFF"}}>/CN</Link>
+                <Link to="/zh"style={{color:"#FFFF"}}>/ CN</Link>
               </TextLangForZh>
             </TextContent>
             <IconContent>
